@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/ros/userpath_fastrack/devel/setup.sh

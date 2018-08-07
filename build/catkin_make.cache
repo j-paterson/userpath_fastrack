@@ -1,0 +1,2 @@
+userpath:userpath_msgs
+-DCATKIN_DEVEL_PREFIX=/home/ros/userpath_fastrack/devel -DCMAKE_INSTALL_PREFIX=/home/ros/userpath_fastrack/install -G Unix Makefiles
