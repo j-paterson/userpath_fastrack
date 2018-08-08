@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 
 <launch>
-
   <!-- ========================== Additional Launch Files ========================= -->
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" >
      <arg name="port" value="9090"/>
@@ -17,6 +16,7 @@
   <arg name="uri6" value="radio://0/25/2M/E7E7E7E701" />
   <arg name="uri7" value="radio://0/52/2M/E7E7E7E702" />
 
+  <arg name="uriA" default="radio://0/80/2M/E7E7E7E7EA" />
   <arg name="uriB" default="radio://0/80/2M/E7E7E7E7EB" />
 
   <arg name="uri" default="$(arg uriB)" />
@@ -88,7 +88,7 @@
   <arg name="sensor_dt" default="0.1" />
 
   <!-- Control merge mode. -->
-  <arg name="merger_mode" default="PRIORITIZED" />
+  <arg name="merger_mode" default="LQR" />
 
   <!-- Controller params. -->
   <arg name="tracker_x_dim" default="6" />
@@ -96,7 +96,7 @@
   <arg name="lqr_x_dim" default="7" />
   <arg name="lqr_u_dim" default="4" />
 
-  <arg name="lqr_K_file" default="$(find crazyflie_lqr)/references/K_poor.txt" />
+  <arg name="lqr_K_file" default="$(find crazyflie_lqr)/references/K_manual.txt" />
   <arg name="lqr_u_ref_file" default="$(find crazyflie_lqr)/references/u_ref_hover.txt" />
 
   <!-- Environment parameters. -->
@@ -109,7 +109,7 @@
   <arg name="env_lower_x" default="-$(arg env_max)" />
   <arg name="env_lower_y" default="-$(arg env_max)" />
   <arg name="env_lower_z" default="0.0" />
-  <arg name="env_num_obstacles" default="20" />
+  <arg name="env_num_obstacles" default="0" />
   <arg name="env_min_radius" default="0.5" />
   <arg name="env_max_radius" default="1.0" />
   <arg name="seed" default="0" />
@@ -138,6 +138,8 @@
 
   <!-- Planner. -->
   <include file="$(find fastrack_crazyflie_demos)/launch/ompl_kinematic_planner.launch">
+    <arg name="traj_topic" value="$(arg traj_topic)" />
+    <arg name="replan_request_topic" value="$(arg replan_request_topic)" />
     <arg name="sensor_sub_topic" value="$(arg sensor_topic)" />
     <arg name="updated_env_topic" value="$(arg updated_env_topic)" />
     <arg name="vis_topic" value="$(arg known_env_vis_topic)" />
@@ -145,6 +147,8 @@
     <arg name="dynamics_srv" value="$(arg planner_dynamics_srv)" />
     <arg name="fixed_frame" default="$(arg fixed_frame)" />
     <arg name="max_runtime" value="$(arg planner_runtime)" />
+    <arg name="config_upper" value="$(arg config_upper)" />
+    <arg name="config_lower" value="$(arg config_lower)" />
     <arg name="env_upper_x" value="$(arg env_upper_x)" />
     <arg name="env_upper_y" value="$(arg env_upper_y)" />
     <arg name="env_upper_z" value="$(arg env_upper_z)" />
@@ -346,5 +350,4 @@
     <param name="topics/final_control" value="$(arg final_control_topic)" />
     <param name="topics/in_flight" value="$(arg in_flight_topic)" />
   </node>
-
 </launch>
