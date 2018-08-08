@@ -1,27 +1,13 @@
 <?xml version="1.0"?>
 
 <launch>
-
   <!-- ========================== Additional Launch Files ========================= -->
+  <include file="$(find fastrack_crazyflie_demos)/launch/rviz.launch"/>
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" >
      <arg name="port" value="9090"/>
   </include>
 
-  <!-- Crazyflie address. -->
-  <arg name="uri0" value="radio://0/79/2M/E7E7E7E7E7" />
-  <arg name="uri1" value="radio://2/101/2M/E7E7E7E701" />
-  <arg name="uri2" value="radio://0/88/2M/E7E7E7E705" />
-  <arg name="uri3" value="radio://0/93/2M/E7E7E7E703" />
-  <arg name="uri4" value="radio://WE_DO_NOT_HAVE_cf4" />
-  <arg name="uri5" value="radio://0/72/2M/E7E7E7E701" />
-  <arg name="uri6" value="radio://0/25/2M/E7E7E7E701" />
-  <arg name="uri7" value="radio://0/52/2M/E7E7E7E702" />
-
-  <arg name="uriB" default="radio://0/80/2M/E7E7E7E7EB" />
-
-  <arg name="uri" default="$(arg uriB)" />
-
-<!-- Topics. -->
+  <!-- Topics. -->
   <arg name="userpoint_topic" default="/userpoint" />
 
   <arg name="position_velocity_yaw_state_topic" default="/state/position_velocity_yaw" />
@@ -60,7 +46,6 @@
   <arg name="fixed_frame" default="world" />
   <arg name="tracker_frame" default="tracker" />
   <arg name="planner_frame" default="planner" />
-  <arg name="mocap_frame" default="vicon/cf7/cf7" />
 
   <!-- Goal point. -->
   <arg name="goal_x" default="0.0" />
@@ -138,6 +123,8 @@
 
   <!-- Planner. -->
   <include file="$(find fastrack_crazyflie_demos)/launch/ompl_kinematic_planner.launch">
+    <arg name="traj_topic" value="$(arg traj_topic)" />
+    <arg name="replan_request_topic" value="$(arg replan_request_topic)" />
     <arg name="sensor_sub_topic" value="$(arg sensor_topic)" />
     <arg name="updated_env_topic" value="$(arg updated_env_topic)" />
     <arg name="vis_topic" value="$(arg known_env_vis_topic)" />
@@ -145,6 +132,8 @@
     <arg name="dynamics_srv" value="$(arg planner_dynamics_srv)" />
     <arg name="fixed_frame" default="$(arg fixed_frame)" />
     <arg name="max_runtime" value="$(arg planner_runtime)" />
+    <arg name="config_upper" value="$(arg config_upper)" />
+    <arg name="config_lower" value="$(arg config_lower)" />
     <arg name="env_upper_x" value="$(arg env_upper_x)" />
     <arg name="env_upper_y" value="$(arg env_upper_y)" />
     <arg name="env_upper_z" value="$(arg env_upper_z)" />
@@ -156,7 +145,7 @@
     <arg name="env_max_radius" value="$(arg env_max_radius)" />
     <arg name="seed" value="$(arg seed)" />
   </include>
-
+  
   <!-- Planner manager. -->
   <include file="$(find userpath)/launch/position_velocity_userpath_planner_manager.launch">
     <arg name="ready_topic" value="$(arg in_flight_topic)" />
@@ -230,32 +219,21 @@
         args="0 0 0 0 0 0 1 $(arg tracker_frame) $(arg tracker_frame)/base_link 100">
   </node>
 
-  <!-- TF static publisher to tie the mocap output to the robot frame. -->
-  <node pkg="tf"
-        type="static_transform_publisher"
-        name="mocap_frame_publisher"
-        args="0 0 0 0 0 0 1 $(arg mocap_frame) $(arg tracker_frame) 100">
-  </node>
-
-  <!-- Crazyflie interface. -->
-  <include file="$(find crazyflie_driver)/launch/crazyflie_server.launch" />
-
-  <group ns="crazyflie">
-    <include file="$(find crazyflie_driver)/launch/crazyflie_add.launch">
-      <arg name="uri" value="$(arg uri)" />
-      <arg name="tf_prefix" value="$(arg tracker_frame)" />
-      <arg name="enable_logging" value="True" />
-    </include>
-  </group>
-
-  <!-- Converter for custom command velocity messages. -->
-  <node name="cmd_vel_converter"
-        pkg="crazyflie_control_merger"
-        type="cmd_vel_converter_node"
+  <!-- Crazyflie dynamics simulator. -->
+  <node name="simulator"
+        pkg="crazyflie_simulator"
+        type="near_hover_simulator_node"
         output="screen">
 
+    <param name="time_step" value="$(arg simulator_dt)" />
+    <param name="init/x" value="$(arg sim_init_x)" />
+    <param name="init/y" value="$(arg sim_init_y)" />
+    <param name="init/z" value="$(arg sim_init_z)" />
+
+    <param name="frames/fixed" value="$(arg fixed_frame)" />
+    <param name="frames/robot" value="$(arg tracker_frame)" />
+
     <param name="topics/control" value="$(arg final_control_topic)" />
-    <param name="topics/cmd_vel" value="/$(arg tracker_frame)/cmd_vel" />
   </node>
 
   <!-- State estimators. -->
@@ -346,5 +324,4 @@
     <param name="topics/final_control" value="$(arg final_control_topic)" />
     <param name="topics/in_flight" value="$(arg in_flight_topic)" />
   </node>
-
 </launch>

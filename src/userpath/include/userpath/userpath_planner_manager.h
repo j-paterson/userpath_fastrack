@@ -227,6 +227,23 @@ void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
   // Interpolate the current trajectory.
   const S planner_x = this->traj_.Interpolate(ros::Time::now().toSec());
 
+  // Compare the current time to the end time of the planner. 
+  // If the current time is past the end time, then we have reached the current goal and can update to the next userpoint
+  if(this->traj_.LastTime() - ros::Time::now().toSec() < -1) {
+    ROS_INFO_THROTTLE(1,"Reached Userpoint ID: %s", current_point.id.c_str());
+    if(current_point.next != NULL){
+      ROS_INFO_THROTTLE(1,"Moving to next point on the path");
+
+      // Update goal
+      current_point = *current_point.next;
+      this->goal_.x = current_point.location;
+
+      // Request a replan
+      MaybeRequestTrajectory();
+      return;
+    }
+  }
+
   // Convert to ROS msg and publish.
   this->ref_pub_.publish(planner_x.ToRos());
 
@@ -246,17 +263,6 @@ void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
 
   this->tf_broadcaster_.sendTransform(tf);
 
-  // Compare the current time to the end time of the planner. 
-  // If the current time is past the end time, then we have reached the current goal and can update to the next userpoint
-  if(this->traj_.LastTime() - ros::Time::now().toSec() < 0) {
-    ROS_INFO_THROTTLE(1,"Reached Userpoint ID: %s", current_point.id.c_str());
-    if(current_point.next != NULL){
-      ROS_INFO_THROTTLE(1,"Moving to next point on the path");
-      current_point = *current_point.next;
-      this->goal_.x = current_point.location;
-      MaybeRequestTrajectory();
-    }
-  }
 }
 
 
