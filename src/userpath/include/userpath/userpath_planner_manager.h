@@ -120,8 +120,9 @@ void UserpathPlannerManager<S>::UserpointCallback(const userpath_msgs::Userpoint
     } else {
       current_point = *new_point;
       this->goal_.x = current_point.location;
-      ROS_INFO("Creating first waypoint");
+      ROS_INFO("Creating first waypoint: %f %f %f", this->goal_.x[0], this->goal_.x[1], this->goal_.x[2]);
     }
+    ROS_INFO("Creating waypoint: %f %f %f", new_point->location[0], new_point->location[1], new_point->location[2]);
 
   } else if (msg->action=="DELETE"){
   // DELETE
@@ -198,7 +199,7 @@ void UserpathPlannerManager<S>::MaybeRequestTrajectory() {
   if (this->traj_.Size() > 0) {
     // Catch trajectory that's too short.
     if (this->traj_.LastTime() < msg.start_time) {
-      ROS_ERROR("%s: Current trajectory is too short. Cannot interpolate.",
+      ROS_WARN("%s: Current trajectory is too short. Cannot interpolate.",
                 this->name_.c_str());
       msg.start = this->traj_.LastState().ToRos();
     } else {
