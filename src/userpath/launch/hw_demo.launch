@@ -53,6 +53,7 @@
   <arg name="junk_updated_env_topic" default="/junk/updated_env" />
 
   <!-- Services. -->
+  <arg name="replan_srv" default="/replan" />
   <arg name="bound_srv" default="/bound" />
   <arg name="planner_dynamics_srv" default="/planner_dynamics" />
 
@@ -77,9 +78,9 @@
   <arg name="sim_init_z" default="0.0" />
 
   <!-- Planner params. -->
-  <arg name="planner_vx" default="0.1" />
-  <arg name="planner_vy" default="0.1" />
-  <arg name="planner_vz" default="0.1" />
+  <arg name="planner_vx" default="0.5" />
+  <arg name="planner_vy" default="0.5" />
+  <arg name="planner_vz" default="0.5" />
   <arg name="planner_runtime" default="0.5" />
 
   <!-- Time steps. -->
@@ -101,8 +102,11 @@
 
   <!-- Environment parameters. -->
   <arg name="env_max" default="10.0" />
-  <arg name="config_upper" default="[$(arg env_max), $(arg env_max), $(arg env_max)]" />
-  <arg name="config_lower" default="[-$(arg env_max), -$(arg env_max), 0.0]" />
+  <arg name="vel_max" default="10.0" />
+  <arg name="state_upper" default="[$(arg env_max), $(arg env_max), $(arg env_max),
+                                    $(arg vel_max), $(arg vel_max), $(arg vel_max)]" />
+  <arg name="state_lower" default="[-$(arg env_max), -$(arg env_max), 0.0,
+                                    -$(arg vel_max), -$(arg vel_max), -$(arg vel_max)]" />
   <arg name="env_upper_x" default="$(arg env_max)" />
   <arg name="env_upper_y" default="$(arg env_max)" />
   <arg name="env_upper_z" default="$(arg env_max)" />
@@ -136,19 +140,18 @@
     <arg name="planner_vz" value="$(arg planner_vz)" />
   </include>
 
-  <!-- Planner. -->
+<!-- Planner. -->
   <include file="$(find fastrack_crazyflie_demos)/launch/ompl_kinematic_planner.launch">
-    <arg name="traj_topic" value="$(arg traj_topic)" />
-    <arg name="replan_request_topic" value="$(arg replan_request_topic)" />
     <arg name="sensor_sub_topic" value="$(arg sensor_topic)" />
     <arg name="updated_env_topic" value="$(arg updated_env_topic)" />
     <arg name="vis_topic" value="$(arg known_env_vis_topic)" />
+    <arg name="replan_srv" value="$(arg replan_srv)" />
     <arg name="bound_srv" value="$(arg bound_srv)" />
     <arg name="dynamics_srv" value="$(arg planner_dynamics_srv)" />
     <arg name="fixed_frame" default="$(arg fixed_frame)" />
     <arg name="max_runtime" value="$(arg planner_runtime)" />
-    <arg name="config_upper" value="$(arg config_upper)" />
-    <arg name="config_lower" value="$(arg config_lower)" />
+    <arg name="state_upper" value="$(arg state_upper)" />
+    <arg name="state_lower" value="$(arg state_lower)" />
     <arg name="env_upper_x" value="$(arg env_upper_x)" />
     <arg name="env_upper_y" value="$(arg env_upper_y)" />
     <arg name="env_upper_z" value="$(arg env_upper_z)" />
@@ -159,6 +162,13 @@
     <arg name="env_min_radius" value="$(arg env_min_radius)" />
     <arg name="env_max_radius" value="$(arg env_max_radius)" />
     <arg name="seed" value="$(arg seed)" />
+</include>
+
+  <!-- Replanner. -->
+  <include file="$(find fastrack)/launch/replanner.launch">
+    <arg name="traj_topic" value="$(arg traj_topic)" />
+    <arg name="replan_request_topic" value="$(arg replan_request_topic)" />
+    <arg name="replan_srv" value="$(arg replan_srv)" />
   </include>
 
   <!-- Planner manager. -->
