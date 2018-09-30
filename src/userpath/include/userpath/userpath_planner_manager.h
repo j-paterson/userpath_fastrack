@@ -98,7 +98,7 @@ template<typename S>
 void UserpathPlannerManager<S>::UserpointCallback(const userpath_msgs::UserpointInstruction::ConstPtr& msg) {
 
   ROS_INFO("Received a UserpointInstruction");
-
+  
   if(msg->action=="ADD"){
     // ADD
     Userpoint * new_point = new Userpoint(msg->curr_id, std::vector<double>{msg->x, msg->y, msg->z});

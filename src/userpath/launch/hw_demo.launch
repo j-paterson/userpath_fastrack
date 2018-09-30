@@ -6,7 +6,7 @@
      <arg name="port" value="9090"/>
   </include>
 
-  <!-- Crazyflie address. -->
+  <!-- Crazyflie addresses -->
   <arg name="uri0" value="radio://0/79/2M/E7E7E7E7E7" />
   <arg name="uri1" value="radio://2/101/2M/E7E7E7E701" />
   <arg name="uri2" value="radio://0/88/2M/E7E7E7E705" />
@@ -18,7 +18,10 @@
 
   <arg name="uriA" default="radio://0/80/2M/E7E7E7E7EA" />
   <arg name="uriB" default="radio://0/80/2M/E7E7E7E7EB" />
+  <arg name="uriC" default="radio://0/80/2M/E7E7E7E7EC" />
+  <arg name="uriD" default="radio://0/80/2M/E7E7E7E7ED" />  
 
+  <!-- To change drones, change the default arg to uriA, uriB, uriC or uriD -->
   <arg name="uri" default="$(arg uriA)" />
 
 <!-- Topics. -->
@@ -26,6 +29,8 @@
 
   <arg name="position_velocity_yaw_state_topic" default="/state/position_velocity_yaw" />
   <arg name="position_velocity_state_topic" default="/state/position_velocity" />
+  <arg name="replan_request_topic" default="/replan" />
+  <arg name="traj_topic" default="/traj" />
   <arg name="fastrack_state_topic" default="/state/fastrack" />
   <arg name="fastrack_reference_state_topic" default="/ref/fastrack" />
   <arg name="reference_state_topic" default="/ref/position_velocity" />
@@ -38,8 +43,6 @@
   <arg name="takeoff_control_topic" default="/control/takeoff" />
   <arg name="final_control_topic" default="/control/final" />
 
-  <arg name="replan_request_topic" default="/replan" />
-  <arg name="traj_topic" default="/traj" />
   <arg name="sensor_topic" default="/sensor" />
   <arg name="updated_env_topic" default="/updated_env" />
   <arg name="sensor_vis_topic" default="/vis/sensor" />
@@ -124,6 +127,14 @@
   <!-- Record? -->
   <arg name="record" default="false" />
 
+  <!-- Record a rosbag. -->
+  <node pkg="rosbag"
+        type="record"
+        name="recorder"
+        args="-a -o $(fastrack_crazyflie_demos)/bagfiles/sw_demo_recording.bag"
+        if="$(arg record)">
+  </node>
+
   <!-- ========================== FaSTrack stuff. ========================== -->
   <!-- Tracker. -->
   <include file="$(find fastrack_crazyflie_demos)/launch/analytical_quadrotor_decoupled_tracker.launch">
@@ -178,7 +189,6 @@
     <arg name="replan_request_topic" value="$(arg replan_request_topic)" />
     <arg name="ref_topic" value="$(arg fastrack_reference_state_topic)" />
     <arg name="traj_vis" value="$(arg traj_vis_topic)" />
-    <arg name="bound_vis" value="$(arg bound_vis_topic)" />
     <arg name="fixed_frame" value="$(arg fixed_frame)" />
     <arg name="planner_frame" value="$(arg planner_frame)" />
     <arg name="planner_runtime" value="$(arg planner_runtime)" />

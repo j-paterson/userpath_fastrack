@@ -82,7 +82,13 @@ geometry_msgs/TransformStamped.h
 tf2_ros/transform_broadcaster.h
 -
 
+/home/ros/fastrack/ros/src/fastrack/include/fastrack/state/planar_dubins_3d.h
+fastrack/state/state.h
+-
+
 /home/ros/fastrack/ros/src/fastrack/include/fastrack/state/position_velocity.h
+fastrack/state/planar_dubins_3d.h
+-
 fastrack/state/state.h
 -
 
@@ -111,9 +117,23 @@ std_msgs/ColorRGBA.h
 -
 
 /home/ros/fastrack/ros/src/fastrack/include/fastrack/utils/types.h
-random
+Eigen/Dense
+-
+Eigen/Geometry
+-
+algorithm
+-
+exception
+-
+iostream
+-
+limits
 -
 math.h
+-
+memory
+-
+random
 -
 string
 -
@@ -121,23 +141,7 @@ type_traits
 -
 typeinfo
 -
-exception
--
-memory
--
-limits
--
 vector
--
-algorithm
--
-random
--
-iostream
--
-Eigen/Dense
--
-Eigen/Geometry
 -
 
 /home/ros/fastrack/ros/src/fastrack/include/fastrack/utils/uncopyable.h

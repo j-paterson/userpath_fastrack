@@ -5,6 +5,7 @@ userpath/CMakeFiles/position_velocity_userpath_planner_manager_node.dir/src/posi
 userpath/CMakeFiles/position_velocity_userpath_planner_manager_node.dir/src/position_velocity_userpath_planner_manager_node.cpp.o: /home/ros/fastrack/ros/devel/include/fastrack_msgs/State.h
 userpath/CMakeFiles/position_velocity_userpath_planner_manager_node.dir/src/position_velocity_userpath_planner_manager_node.cpp.o: /home/ros/fastrack/ros/devel/include/fastrack_msgs/Trajectory.h
 userpath/CMakeFiles/position_velocity_userpath_planner_manager_node.dir/src/position_velocity_userpath_planner_manager_node.cpp.o: /home/ros/fastrack/ros/src/fastrack/include/fastrack/planning/planner_manager.h
+userpath/CMakeFiles/position_velocity_userpath_planner_manager_node.dir/src/position_velocity_userpath_planner_manager_node.cpp.o: /home/ros/fastrack/ros/src/fastrack/include/fastrack/state/planar_dubins_3d.h
 userpath/CMakeFiles/position_velocity_userpath_planner_manager_node.dir/src/position_velocity_userpath_planner_manager_node.cpp.o: /home/ros/fastrack/ros/src/fastrack/include/fastrack/state/position_velocity.h
 userpath/CMakeFiles/position_velocity_userpath_planner_manager_node.dir/src/position_velocity_userpath_planner_manager_node.cpp.o: /home/ros/fastrack/ros/src/fastrack/include/fastrack/state/state.h
 userpath/CMakeFiles/position_velocity_userpath_planner_manager_node.dir/src/position_velocity_userpath_planner_manager_node.cpp.o: /home/ros/fastrack/ros/src/fastrack/include/fastrack/trajectory/trajectory.h

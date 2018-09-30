@@ -8,7 +8,7 @@
   <arg name="updated_env_topic" default="/updated_env" />
   <arg name="ref_topic" default="/ref" />
   <arg name="traj_vis" default="/vis/traj" />
-  <arg name="bound_vis" default="/vis/bound" />
+  <arg name="goal_vis" default="/vis/goal" />  
   <arg name="userpoint_topic" default="/userpoint" />
 
   <!-- Frames of reference. -->
@@ -33,15 +33,15 @@
     <param name="topic/ref" value="$(arg ref_topic)" />
     <param name="topic/replan_request" value="$(arg replan_request_topic)" />
     <param name="topic/updated_env" value="$(arg updated_env_topic)" />
-    <param name="topic/userpoint" value="$(arg userpoint_topic)" />
-
     <param name="vis/traj" value="$(arg traj_vis)" />
-    <param name="vis/bound" value="$(arg bound_vis)" />
+    <param name="vis/goal" value="$(arg goal_vis)" />
 
     <param name="frame/fixed" value="$(arg fixed_frame)" />
     <param name="frame/planner" value="$(arg planner_frame)" />
 
     <param name="time_step" value="$(arg time_step)" />
+
+    <param name="topic/userpoint" value="$(arg userpoint_topic)" />
 
     <param name="planner_runtime" value="$(arg planner_runtime)" />
     <rosparam param="start" subst_value="True">$(arg start)</rosparam>
