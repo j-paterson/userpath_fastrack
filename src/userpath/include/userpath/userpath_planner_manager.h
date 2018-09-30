@@ -238,7 +238,6 @@ void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
   // Interpolate the current trajectory.
   const S planner_x = this->traj_.Interpolate(ros::Time::now().toSec());
 
-  // Compare the current time to the end time of the planner. 
   // If the current time is past the end time, then we have reached the current goal and can update to the next userpoint
   if(this->traj_.LastTime() - ros::Time::now().toSec() < -1) {
     ROS_INFO_THROTTLE(1,"Reached Userpoint ID: %s", current_point.id.c_str());
@@ -248,10 +247,6 @@ void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
       // Update goal
       current_point = *current_point.next;
       this->goal_.x = current_point.location;
-
-      // Request a replan
-      MaybeRequestTrajectory();
-      return;
     }
   }
 
