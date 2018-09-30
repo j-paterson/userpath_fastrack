@@ -32,6 +32,9 @@ protected:
   // Callback for applying tracking controller.
   void TimerCallback(const ros::TimerEvent& e);
 
+  // Create and publish a marker at goal state. 
+  void VisualizeGoal() const ;
+
   // Start/goal states.
   //fastrack_msgs::State start_;
   //fastrack_msgs::State goal_;
@@ -182,6 +185,9 @@ void UserpathPlannerManager<S>::UserpointCallback(const userpath_msgs::Userpoint
 // classes with more specific replanning needs.
 template<typename S>
 void UserpathPlannerManager<S>::MaybeRequestTrajectory() {
+  // Publish marker at goal location. 
+  VisualizeGoal();
+
   if (!this->ready_ || this->waiting_for_traj_)
     return;
 
@@ -210,6 +216,8 @@ void UserpathPlannerManager<S>::MaybeRequestTrajectory() {
   // Publish request and set flag.
   this->replan_request_pub_.publish(msg);
   this->waiting_for_traj_ = true;
+  this->serviced_updated_env_ = true;
+
 }
 
 template<typename S>
@@ -220,9 +228,11 @@ void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
   if (this->traj_.Size() == 0) {
     MaybeRequestTrajectory();
     return;
-  } else if (this->traj_.Size() == 0 && this->waiting_for_traj_) {
+  } else if (this->waiting_for_traj_) {
     ROS_WARN_THROTTLE(1.0, "%s: Waiting for trajectory.", this->name_.c_str());
-    return;
+  } else if (!this->serviced_updated_env_) {
+    ROS_INFO_THROTTLE(1.0, "%s: Servicing old updated environment callback.", this-> name_.c_str());
+    MaybeRequestTrajectory();
   }
 
   // Interpolate the current trajectory.
@@ -263,6 +273,14 @@ void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
   tf.transform.rotation.w = 1;
 
   this->tf_broadcaster_.sendTransform(tf);
+
+}
+
+// Converts the goal state into a Rviz marker. 
+template<typename S>
+void UserpathPlannerManager<S>::VisualizeGoal() const {
+
+  PlannerManager<S>::VisualizeGoal();
 
 }
 
