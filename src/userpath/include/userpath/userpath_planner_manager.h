@@ -101,10 +101,12 @@ template<typename S>
 void UserpathPlannerManager<S>::UserpointCallback(const userpath_msgs::UserpointInstruction::ConstPtr& msg) {
 
   ROS_INFO("Received a UserpointInstruction");
-  
+ 
+  double z_adjust = msg->z + 0.8;
+ 
   if(msg->action=="ADD"){
     // ADD
-    Userpoint * new_point = new Userpoint(msg->curr_id, std::vector<double>{msg->x, msg->y, msg->z});
+    Userpoint * new_point = new Userpoint(msg->curr_id, std::vector<double>{msg->x, msg->y, z_adjust});
     userpoints.insert(std::pair<std::string, Userpoint*>(msg->curr_id, new_point));
 
     // If there is a path, we traverse to the end.
@@ -123,9 +125,9 @@ void UserpathPlannerManager<S>::UserpointCallback(const userpath_msgs::Userpoint
     } else {
       current_point = *new_point;
       this->goal_.x = current_point.location;
-      ROS_INFO("Creating first waypoint: %f %f %f", this->goal_.x[0], this->goal_.x[1], this->goal_.x[2]);
+      ROS_INFO("Creating first waypoint %s at %f, %f, %f", msg->curr_id.c_str(), this->goal_.x[0], this->goal_.x[1], this->goal_.x[2]);
     }
-    ROS_INFO("Creating waypoint: %f %f %f", new_point->location[0], new_point->location[1], new_point->location[2]);
+    ROS_INFO("Creating waypoint %s at %f, %f, %f", msg->curr_id.c_str(), new_point->location[0], new_point->location[1], new_point->location[2]);
 
   } else if (msg->action=="DELETE"){
   // DELETE
@@ -136,19 +138,22 @@ void UserpathPlannerManager<S>::UserpointCallback(const userpath_msgs::Userpoint
     if (prev_point!=NULL){
       prev_point->next = next_point;
     }
-
-    next_point->prev = prev_point;
+    if (next_point!=NULL){
+      next_point->prev = prev_point;
+    }
 
     // Check if we deleted the goal.
     if(delete_point->id == current_point.id){
       //Trigger a replan
-      current_point = *current_point.next;
-      this->goal_.x = current_point.location;
+      if (next_point != NULL) {
+        this->goal_.x = next_point->location;
+      }
     }
+
 
   } else if(msg->action=="INSERT"){
     // INSERT
-    Userpoint * new_point = new Userpoint(msg->curr_id, std::vector<double>{msg->x, msg->y, msg->z});
+    Userpoint * new_point = new Userpoint(msg->curr_id, std::vector<double>{msg->x, msg->y, z_adjust});
     userpoints.insert(std::pair<std::string, Userpoint*>(msg->curr_id, new_point));
 
     Userpoint * prev_point = userpoints[msg->prev_id];
@@ -169,7 +174,7 @@ void UserpathPlannerManager<S>::UserpointCallback(const userpath_msgs::Userpoint
 
   } else if(msg->action=="MODIFY"){
     Userpoint * modify_point = userpoints[msg->curr_id];
-    modify_point->location = std::vector<double>{msg->x, msg->y, msg->z};
+    modify_point->location = std::vector<double>{msg->x, msg->y, z_adjust};
     
     // Check if the point we are modifying is the goal.
     if(modify_point->id == current_point.id){
@@ -247,6 +252,8 @@ void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
       // Update goal
       current_point = *current_point.next;
       this->goal_.x = current_point.location;
+
+      MaybeRequestTrajectory();
     }
   }
 

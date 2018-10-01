@@ -92,7 +92,7 @@
   <arg name="sensor_dt" default="0.1" />
 
   <!-- Control merge mode. -->
-  <arg name="merger_mode" default="PRIORITIZED" />
+  <arg name="merger_mode" default="LQR" />
 
   <!-- Controller params. -->
   <arg name="tracker_x_dim" default="6" />
