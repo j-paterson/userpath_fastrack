@@ -2,7 +2,7 @@
 
 <launch>
   <!-- ========================== Additional Launch Files ========================= -->
-<!--  <include file="$(find fastrack_crazyflie_demos)/launch/rviz.launch"/> -->
+  <include file="$(find fastrack_crazyflie_demos)/launch/rviz.launch"/>
   <include file="$(find rosbridge_server)/launch/rosbridge_websocket.launch" >
      <arg name="port" value="9090"/>
   </include>

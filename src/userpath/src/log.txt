@@ -1,0 +1,303 @@
+... logging to /home/ros/.ros/log/4d137518-cc24-11e8-a5cc-54a050d3fa21/roslaunch-ros-G11CD-26831.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+]2;/home/ros/userpath_fastrack/src/userpath/launch/hw_demo.launch
+[1mstarted roslaunch server http://ros-G11CD:37351/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /cmd_vel_converter/topics/cmd_vel: /tracker/cmd_vel
+ * /cmd_vel_converter/topics/control: /control/final
+ * /control_converter/topic/converted_control: /control/prioritized
+ * /control_converter/topic/fastrack_control: /control/fastrack
+ * /crazyflie/crazyflie_add/enable_logging: True
+ * /crazyflie/crazyflie_add/enable_logging_battery: True
+ * /crazyflie/crazyflie_add/enable_logging_imu: True
+ * /crazyflie/crazyflie_add/enable_logging_magnetic_field: True
+ * /crazyflie/crazyflie_add/enable_logging_pressure: True
+ * /crazyflie/crazyflie_add/enable_logging_temperature: True
+ * /crazyflie/crazyflie_add/pitch_trim: 0
+ * /crazyflie/crazyflie_add/roll_trim: 0
+ * /crazyflie/crazyflie_add/tf_prefix: tracker
+ * /crazyflie/crazyflie_add/uri: radio://0/80/2M/E...
+ * /crazyflie/crazyflie_add/use_ros_time: True
+ * /lqr_controller/K_file: /home/ros/crazyfl...
+ * /lqr_controller/topics/control: /control/lqr
+ * /lqr_controller/topics/in_flight: /in_flight
+ * /lqr_controller/topics/reference: /ref/position_vel...
+ * /lqr_controller/topics/state: /state/position_v...
+ * /lqr_controller/u_dim: 4
+ * /lqr_controller/u_ref_file: /home/ros/crazyfl...
+ * /lqr_controller/x_dim: 7
+ * /merger/mode: MERGE
+ * /merger/topics/control: /control/lqr
+ * /merger/topics/in_flight: /in_flight
+ * /merger/topics/merged: /control/merged
+ * /merger/topics/prioritized_control: /control/prioritized
+ * /merger/topics/reference: /ref/position_vel...
+ * /planner/env/lower/x: -10.0
+ * /planner/env/lower/y: -10.0
+ * /planner/env/lower/z: 0.0
+ * /planner/env/max_radius: 1.0
+ * /planner/env/min_radius: 0.5
+ * /planner/env/num_random_obstacles: 0
+ * /planner/env/seed: 0
+ * /planner/env/upper/x: 10.0
+ * /planner/env/upper/y: 10.0
+ * /planner/env/upper/z: 10.0
+ * /planner/frame/fixed: world
+ * /planner/max_runtime: 0.5
+ * /planner/srv/bound: /bound
+ * /planner/srv/dynamics: /planner_dynamics
+ * /planner/srv/replan: /replan
+ * /planner/state/lower: [-10.0, -10.0, 0....
+ * /planner/state/upper: [10.0, 10.0, 10.0...
+ * /planner/topic/sensor_sub: /sensor
+ * /planner/topic/updated_env: /updated_env
+ * /planner/vis/env: /vis/known_env
+ * /position_velocity_state_estimator/frames/fixed: world
+ * /position_velocity_state_estimator/frames/robot: tracker
+ * /position_velocity_state_estimator/time_step: 0.005
+ * /position_velocity_state_estimator/topics/state: /state/position_v...
+ * /position_velocity_state_estimator/x_dim: 6
+ * /position_velocity_yaw_state_estimator/frames/fixed: world
+ * /position_velocity_yaw_state_estimator/frames/robot: tracker
+ * /position_velocity_yaw_state_estimator/time_step: 0.005
+ * /position_velocity_yaw_state_estimator/topics/state: /state/position_v...
+ * /position_velocity_yaw_state_estimator/x_dim: 7
+ * /reference_converter/topic/fastrack_reference: /ref/fastrack
+ * /reference_converter/topic/raw_reference: /ref/position_vel...
+ * /replanner/srv/replan: /replan
+ * /replanner/topic/replan_request: /replan
+ * /replanner/topic/traj: /traj
+ * /robot_description: <?xml version="1....
+ * /rosapi/params_glob: [*]
+ * /rosapi/services_glob: [*]
+ * /rosapi/topics_glob: [*]
+ * /rosbridge_websocket/address: 
+ * /rosbridge_websocket/authenticate: False
+ * /rosbridge_websocket/bson_only_mode: False
+ * /rosbridge_websocket/delay_between_messages: 0
+ * /rosbridge_websocket/fragment_timeout: 600
+ * /rosbridge_websocket/max_message_size: None
+ * /rosbridge_websocket/params_glob: [*]
+ * /rosbridge_websocket/port: 9090
+ * /rosbridge_websocket/retry_startup_delay: 5
+ * /rosbridge_websocket/services_glob: [*]
+ * /rosbridge_websocket/topics_glob: [*]
+ * /rosbridge_websocket/unregister_timeout: 10
+ * /rosdistro: kinetic
+ * /rosversion: 1.12.13
+ * /sensor/env/lower/x: -10.0
+ * /sensor/env/lower/y: -10.0
+ * /sensor/env/lower/z: 0.0
+ * /sensor/env/max_radius: 1.0
+ * /sensor/env/min_radius: 0.5
+ * /sensor/env/num_random_obstacles: 0
+ * /sensor/env/obstacle/rs: []
+ * /sensor/env/obstacle/xs: []
+ * /sensor/env/obstacle/ys: []
+ * /sensor/env/obstacle/zs: []
+ * /sensor/env/seed: 0
+ * /sensor/env/upper/x: 10.0
+ * /sensor/env/upper/y: 10.0
+ * /sensor/env/upper/z: 10.0
+ * /sensor/frame/fixed: world
+ * /sensor/frame/sensor: tracker
+ * /sensor/range: 2.0
+ * /sensor/time_step: 0.1
+ * /sensor/topic/sensor_pub: /sensor
+ * /sensor/topic/sensor_sub: /sensor
+ * /sensor/topic/updated_env: /junk/updated_env
+ * /sensor/vis/env: /vis/true_env
+ * /sensor/vis/sensor: /vis/sensor
+ * /state_converter/topic/fastrack_state: /state/fastrack
+ * /state_converter/topic/raw_state: /state/position_v...
+ * /takeoff_control_filter/topics/commanded_control: /control/merged
+ * /takeoff_control_filter/topics/final_control: /control/final
+ * /takeoff_control_filter/topics/in_flight: /in_flight
+ * /takeoff_control_filter/topics/takeoff_control: /control/takeoff
+ * /takeoff_server/hover/x: 0.0
+ * /takeoff_server/hover/y: 0.0
+ * /takeoff_server/hover/z: 1.0
+ * /takeoff_server/topics/control: /control/takeoff
+ * /takeoff_server/topics/in_flight: /in_flight
+ * /takeoff_server/topics/reference: /ref/position_vel...
+ * /tracker/disturbance/acceleration/x: 0.01
+ * /tracker/disturbance/acceleration/y: 0.01
+ * /tracker/disturbance/acceleration/z: 0.01
+ * /tracker/disturbance/velocity/x: 0.1
+ * /tracker/disturbance/velocity/y: 0.1
+ * /tracker/disturbance/velocity/z: 0.1
+ * /tracker/expansion/velocity/x: 0.1
+ * /tracker/expansion/velocity/y: 0.1
+ * /tracker/expansion/velocity/z: 0.1
+ * /tracker/frames/planner: planner
+ * /tracker/planner/vx: 0.3
+ * /tracker/planner/vy: 0.3
+ * /tracker/planner/vz: 0.3
+ * /tracker/srv/bound: /bound
+ * /tracker/srv/planner_dynamics: /planner_dynamics
+ * /tracker/time_step: 0.02
+ * /tracker/topic/control: /control/fastrack
+ * /tracker/topic/planner_state: /ref/fastrack
+ * /tracker/topic/ready: /in_flight
+ * /tracker/topic/tracker_state: /state/fastrack
+ * /tracker/tracker/lower/thrust: 7.81
+ * /tracker/tracker/upper/pitch: 0.1
+ * /tracker/tracker/upper/roll: 0.1
+ * /tracker/tracker/upper/thrust: 11.81
+ * /tracker/vis/bound: /vis/bound
+ * /userpath_planner_manager/frame/fixed: world
+ * /userpath_planner_manager/frame/planner: planner
+ * /userpath_planner_manager/goal: [0.0, 0.0, 0.5]
+ * /userpath_planner_manager/planner_runtime: 0.5
+ * /userpath_planner_manager/start: [0.0, 0.0, 1.0]
+ * /userpath_planner_manager/time_step: 0.02
+ * /userpath_planner_manager/topic/ready: /in_flight
+ * /userpath_planner_manager/topic/ref: /ref/fastrack
+ * /userpath_planner_manager/topic/replan_request: /replan
+ * /userpath_planner_manager/topic/traj: /traj
+ * /userpath_planner_manager/topic/updated_env: /updated_env
+ * /userpath_planner_manager/topic/userpoint: /userpoint
+ * /userpath_planner_manager/vis/goal: /vis/goal
+ * /userpath_planner_manager/vis/traj: /vis/traj
+
+NODES
+  /crazyflie/
+    crazyflie_add (crazyflie_driver/crazyflie_add)
+  /
+    cmd_vel_converter (crazyflie_control_merger/cmd_vel_converter_node)
+    control_converter (fastrack_crazyflie_demos/control_converter_demo_node)
+    crazyflie_server (crazyflie_driver/crazyflie_server)
+    lqr_controller (crazyflie_lqr/position_velocity_yaw_state_lift_lqr_node)
+    merger (crazyflie_control_merger/regular_control_merger_node)
+    mocap_frame_publisher (tf/static_transform_publisher)
+    planner (fastrack_crazyflie_demos/ompl_kinematic_planner_demo_node)
+    position_velocity_state_estimator (crazyflie_state_estimator/position_velocity_state_estimator_node)
+    position_velocity_yaw_state_estimator (crazyflie_state_estimator/position_velocity_yaw_state_estimator_node)
+    reference_converter (fastrack_crazyflie_demos/position_velocity_reference_converter_demo_node)
+    replanner (fastrack/replanner_node)
+    rosapi (rosapi/rosapi_node)
+    rosbridge_websocket (rosbridge_server/rosbridge_websocket)
+    rviz (rviz/rviz)
+    sensor (fastrack_crazyflie_demos/sphere_sensor_demo_node)
+    state_converter (fastrack_crazyflie_demos/state_conve[0m[ INFO] [1539141746.126570709]: Adding radio://0/80/2M/E7E7E7E7EA as tracker with trim(0.000000, 0.000000). Logging: 1, Parameters: 1, Use ROS time: 1[0m
+Configured Dongle with version 0.53
+K is: 
+   -0  0.25    -0    -0     1     0    -0
+-0.25    -0    -0    -1    -0    -0    -0
+   -0     0    -0    -0     0     0  -3.5
+   -0    -0  -1.5    -0    -0    -1     0
+uref is: 
+   0    0    0 9.81
+[0m[ INFO] [1539141746.117021563]: wait_for_service /add_crazyflie[0m
+[0m[ INFO] [1539141746.120242769]: found /add_crazyflie[0m
+[0m[ INFO] [1539141748.557739342]: Requesting parameters...[0m
+[33m[ WARN] [1539141748.583417262]: Link Quality low (0.670000)[0m
+Params: 141
+[0m[ INFO] [1539141749.406089175]: Requesting Logging variables...[0m
+Log: 224
+[33m[ WARN] [1539141746.370868939]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.370922209]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.371014828]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.371023163]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.376170451]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.376180521]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.381336824]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.381347225]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.386442867]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539141746.335175579 but the earliest data is at time 1539141746.385666521, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.386453060]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.391567219]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539141746.335175579 but the earliest data is at time 1539141746.385666521, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.391579120]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[0m[ INFO] [1539141746.067338370]: /merger/control_merger: Entering MERGE mode.[0m
+[33m[ WARN] [1539141746.368238056]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.368264600]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.368315854]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.368328453]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.373506896]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.373517473]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.378656675]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.378665915]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.383828181]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.383838533]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.388999064]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539141746.335175579 but the earliest data is at time 1539141746.385666521, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.389009604]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539141746.161032527]: /sensor/Sensor: "world" passed to lookupTransform argument target_frame does not exist. [0m
+[33m[ WARN] [1539141746.161076948]: /sensor/Sensor: Could not determine current sensor pose.[0m
+[33m[ WARN] [1539141746.261334278]: /sensor/Sensor: "tracker" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1539141746.261349368]: /sensor/Sensor: Could not determine current sensor pose.[0m
+[33m[ WARN] [1539141746.361552195]: /sensor/Sensor: Lookup would require extrapolation at time 1539141746.335175579, but only time 1539141746.385666521 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539141746.361573289]: /sensor/Sensor: Could not determine current sensor pose.[0m
+[0m[ INFO] [1539141749.948406195]: Ready...[0m
+[0m[ INFO] [1539141749.948483212]: Elapsed: 1.390786 s[0m
+[0m[ INFO] [1539141745.994096169]: /planner/Environment: No pre-specified obstacles.[0m
+registered capabilities (classes):
+ - rosbridge_library.capabilities.call_service.CallService
+ - rosbridge_library.capabilities.advertise.Advertise
+ - rosbridge_library.capabilities.publish.Publish
+ - rosbridge_library.capabilities.subscribe.Subscribe
+ - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
+ - rosbridge_library.capabilities.advertise_service.AdvertiseService
+ - rosbridge_library.capabilities.service_response.ServiceResponse
+ - rosbridge_library.capabilities.unadvertise_service.UnadvertiseService
+[INFO] [1539141746.329825]: Rosbridge WebSocket server started on port 9090
+rter_demo_node)
+    takeoff_control_filter (crazyflie_takeoff/takeoff_control_filter_node)
+    takeoff_server (crazyflie_takeoff/takeoff_server_node)
+    tracker (fastrack_crazyflie_demos/analytical_quadrotor_decoupled_tracker_demo_node)
+    tracker_base_link_publisher (tf/static_transform_publisher)
+    userpath_planner_manager (userpath/position_velocity_userpath_planner_manager_node)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/ros/userpath_fastrack/src/userpath/launch/hw_demo.launch http://localhost:11311
+[1mprocess[rviz-1]: started with pid [26851][0m
+[1mprocess[rosbridge_websocket-2]: started with pid [26852][0m
+[1mprocess[rosapi-3]: started with pid [26853][0m
+[1mprocess[tracker-4]: started with pid [26854][0m
+[1mprocess[planner-5]: started with pid [26855][0m
+[1mprocess[replanner-6]: started with pid [26872][0m
+[1mprocess[userpath_planner_manager-7]: started with pid [26890][0m
+[1mprocess[sensor-8]: started with pid [26911][0m
+[1mprocess[control_converter-9]: started with pid [26925][0m
+[1mprocess[state_converter-10]: started with pid [26943][0m
+[1mprocess[reference_converter-11]: started with pid [26964][0m
+[1mprocess[tracker_base_link_publisher-12]: started with pid [26982][0m
+[1mprocess[mocap_frame_publisher-13]: started with pid [27002][0m
+[1mprocess[crazyflie_server-14]: started with pid [27021][0m
+[1mprocess[crazyflie/crazyflie_add-15]: started with pid [27027][0m
+[1mprocess[cmd_vel_converter-16]: started with pid [27056][0m
+[1mprocess[position_velocity_yaw_state_estimator-17]: started with pid [27077][0m
+[1mprocess[position_velocity_state_estimator-18]: started with pid [27097][0m
+[1mprocess[lqr_controller-19]: started with pid [27121][0m
+[1mprocess[merger-20]: started with pid [27131][0m
+[1mprocess[takeoff_server-21]: started with pid [27137][0m
+[1mprocess[takeoff_control_filter-22]: started with pid [27140][0m
+[1m[crazyflie/crazyflie_add-15] process has finished cleanly
+log file: /home/ros/.ros/log/4d137518-cc24-11e8-a5cc-54a050d3fa21/crazyflie-crazyflie_add-15*.log[0m
+[takeoff_control_filter-22] killing on exit
+[takeoff_server-21] killing on exit
+[merger-20] killing on exit
+[lqr_controller-19] killing on exit
+[position_velocity_state_estimator-18] killing on exit
+[position_velocity_yaw_state_estimator-17] killing on exit
+[cmd_vel_converter-16] killing on exit
+[crazyflie_server-14] killing on exit
+[mocap_frame_publisher-13] killing on exit
+[tracker_base_link_publisher-12] killing on exit
+[reference_converter-11] killing on exit
+[state_converter-10] killing on exit
+[control_converter-9] killing on exit
+[sensor-8] killing on exit
+[userpath_planner_manager-7] killing on exit
+[replanner-6] killing on exit
+[planner-5] killing on exit
+[tracker-4] killing on exit
+[rosapi-3] killing on exit
+[rosbridge_websocket-2] killing on exit
+[rviz-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m

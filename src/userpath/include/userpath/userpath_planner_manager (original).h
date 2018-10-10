@@ -5,7 +5,6 @@
 #include <userpath/userpoint.h>
 #include <userpath_msgs/UserpointInstruction.h>
 #include <unordered_map>
-#include <unistd.h>
 
 using namespace fastrack;
 using namespace planning;
@@ -74,9 +73,7 @@ bool UserpathPlannerManager<S>::LoadParameters(const ros::NodeHandle& n) {
 // Register callbacks.
 template<typename S>
 bool UserpathPlannerManager<S>::RegisterCallbacks(const ros::NodeHandle& n) {
-
   ros::NodeHandle nl(n);
-	ROS_INFO("enter register callback");
 
   // Inherited callbacks
   if (!PlannerManager<S>::RegisterCallbacks(n)) return false;
@@ -86,26 +83,14 @@ bool UserpathPlannerManager<S>::RegisterCallbacks(const ros::NodeHandle& n) {
     userpoint_topic_.c_str(), 1, &UserpathPlannerManager::UserpointCallback, this);
 
   // Test Points
-  Userpoint * first_point = new Userpoint("1", std::vector<double>{1, 1, 1});
-	current_point = *first_point;
-	this->goal_.x = current_point.location;
-	MaybeRequestTrajectory();
 
-  Userpoint * second_point = new Userpoint("2", std::vector<double>{1, 2, 1});
-	current_point.next = second_point;
-	current_point = *second_point;
-	this->goal_.x = current_point.location;
-	MaybeRequestTrajectory();
+  //Userpoint * first_point = new Userpoint("1", std::vector<double>{1, 1, 1});
+  //Userpoint * second_point = new Userpoint("2", std::vector<double>{1, 2, 1});
+  //Userpoint * third_point = new Userpoint("3", std::vector<double>{1, 3, 1});
 
-  Userpoint * third_point = new Userpoint("3", std::vector<double>{1, 3, 1});
-	current_point.next = third_point;
-	current_point = *third_point;
-	this->goal_.x = current_point.location;
-	MaybeRequestTrajectory();
-
-	userpoints.insert(std::pair<std::string, Userpoint*>(first_point->id, first_point));
-	userpoints.insert(std::pair<std::string, Userpoint*>(second_point->id, second_point));
-	userpoints.insert(std::pair<std::string, Userpoint*>(third_point->id, third_point));
+  //current_point = *first_point;
+  //current_point.next = second_point;
+  //second_point->next = third_point;
 
   return true;
 }
@@ -203,30 +188,24 @@ void UserpathPlannerManager<S>::UserpointCallback(const userpath_msgs::Userpoint
 // classes with more specific replanning needs.
 template<typename S>
 void UserpathPlannerManager<S>::MaybeRequestTrajectory() {
-  
-  ROS_INFO("enter callback function");
-
   // Publish marker at goal location. 
   VisualizeGoal();
 
-  //if (!this->ready_ || this->waiting_for_traj_)
-    //return;
+  if (!this->ready_ || this->waiting_for_traj_)
+    return;
+
+  ROS_INFO("Maybe Request Trajectory");
 
   // Set start and goal states.
   fastrack_msgs::ReplanRequest msg;
   msg.start = this->start_;
   msg.goal = this->goal_;
-	
-	ROS_INFO("Maybe Request Trajectory from (%f, %f, %f) to (%f, %f, %f)", 
-		this->start_.x[0], this->start_.x[1], this->start_.x[2],
-		this->goal_.x[0], this->goal_.x[1], this->goal_.x[2]);
 
   // Set start time.
   msg.start_time = ros::Time::now().toSec() + this->planner_runtime_;
 
   // Reset start state for future state if we have a current trajectory.
   if (this->traj_.Size() > 0) {
-		ROS_INFO("enter interpolation");
     // Catch trajectory that's too short.
     if (this->traj_.LastTime() < msg.start_time) {
       ROS_WARN("%s: Current trajectory is too short. Cannot interpolate.",
@@ -236,9 +215,7 @@ void UserpathPlannerManager<S>::MaybeRequestTrajectory() {
       msg.start = this->traj_.Interpolate(msg.start_time).ToRos();
     }
   }
-	
-	ROS_INFO("trying to interpolate");
-	//msg.start = this->traj_.Interpolate(msg.start_time).ToRos();
+
   // Publish request and set flag.
   this->replan_request_pub_.publish(msg);
   this->waiting_for_traj_ = true;
@@ -248,25 +225,19 @@ void UserpathPlannerManager<S>::MaybeRequestTrajectory() {
 
 template<typename S>
 void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
-	ROS_INFO("enter TimerCallback function");
-
-  //if (!this->ready_)
-    //return;
+  if (!this->ready_)
+    return;
 
   if (this->traj_.Size() == 0) {
-    ROS_INFO("enter callback 1");
     MaybeRequestTrajectory();
     return;
   } else if (this->waiting_for_traj_) {
-		ROS_INFO("enter callback 2");
     ROS_WARN_THROTTLE(1.0, "%s: Waiting for trajectory.", this->name_.c_str());
   } else if (!this->serviced_updated_env_) {
-		ROS_INFO("enter callback 3");
     ROS_INFO_THROTTLE(1.0, "%s: Servicing old updated environment callback.", this-> name_.c_str());
     MaybeRequestTrajectory();
   }
-	
-	ROS_INFO("afterwards");
+
   // Interpolate the current trajectory.
   const S planner_x = this->traj_.Interpolate(ros::Time::now().toSec());
 

@@ -1,0 +1,1196 @@
+... logging to /home/ros/.ros/log/a13ef422-cc43-11e8-a5cc-54a050d3fa21/roslaunch-ros-G11CD-2527.log
+Checking log directory for disk usage. This may take awhile.
+Press Ctrl-C to interrupt
+]2;/home/ros/userpath_fastrack/src/userpath/launch/hw_demo.launch
+[1mstarted roslaunch server http://ros-G11CD:39377/[0m
+
+SUMMARY
+========
+
+PARAMETERS
+ * /cmd_vel_converter/topics/cmd_vel: /tracker/cmd_vel
+ * /cmd_vel_converter/topics/control: /control/final
+ * /control_converter/topic/converted_control: /control/prioritized
+ * /control_converter/topic/fastrack_control: /control/fastrack
+ * /crazyflie/crazyflie_add/enable_logging: True
+ * /crazyflie/crazyflie_add/enable_logging_battery: True
+ * /crazyflie/crazyflie_add/enable_logging_imu: True
+ * /crazyflie/crazyflie_add/enable_logging_magnetic_field: True
+ * /crazyflie/crazyflie_add/enable_logging_pressure: True
+ * /crazyflie/crazyflie_add/enable_logging_temperature: True
+ * /crazyflie/crazyflie_add/pitch_trim: 0
+ * /crazyflie/crazyflie_add/roll_trim: 0
+ * /crazyflie/crazyflie_add/tf_prefix: tracker
+ * /crazyflie/crazyflie_add/uri: radio://0/80/2M/E...
+ * /crazyflie/crazyflie_add/use_ros_time: True
+ * /lqr_controller/K_file: /home/ros/crazyfl...
+ * /lqr_controller/topics/control: /control/lqr
+ * /lqr_controller/topics/in_flight: /in_flight
+ * /lqr_controller/topics/reference: /ref/position_vel...
+ * /lqr_controller/topics/state: /state/position_v...
+ * /lqr_controller/u_dim: 4
+ * /lqr_controller/u_ref_file: /home/ros/crazyfl...
+ * /lqr_controller/x_dim: 7
+ * /merger/mode: MERGE
+ * /merger/topics/control: /control/lqr
+ * /merger/topics/in_flight: /in_flight
+ * /merger/topics/merged: /control/merged
+ * /merger/topics/prioritized_control: /control/prioritized
+ * /merger/topics/reference: /ref/position_vel...
+ * /planner/env/lower/x: -10.0
+ * /planner/env/lower/y: -10.0
+ * /planner/env/lower/z: 0.0
+ * /planner/env/max_radius: 1.0
+ * /planner/env/min_radius: 0.5
+ * /planner/env/num_random_obstacles: 0
+ * /planner/env/seed: 0
+ * /planner/env/upper/x: 10.0
+ * /planner/env/upper/y: 10.0
+ * /planner/env/upper/z: 10.0
+ * /planner/frame/fixed: world
+ * /planner/max_runtime: 0.5
+ * /planner/srv/bound: /bound
+ * /planner/srv/dynamics: /planner_dynamics
+ * /planner/srv/replan: /replan
+ * /planner/state/lower: [-10.0, -10.0, 0....
+ * /planner/state/upper: [10.0, 10.0, 10.0...
+ * /planner/topic/sensor_sub: /sensor
+ * /planner/topic/updated_env: /updated_env
+ * /planner/vis/env: /vis/known_env
+ * /position_velocity_state_estimator/frames/fixed: world
+ * /position_velocity_state_estimator/frames/robot: tracker
+ * /position_velocity_state_estimator/time_step: 0.005
+ * /position_velocity_state_estimator/topics/state: /state/position_v...
+ * /position_velocity_state_estimator/x_dim: 6
+ * /position_velocity_yaw_state_estimator/frames/fixed: world
+ * /position_velocity_yaw_state_estimator/frames/robot: tracker
+ * /position_velocity_yaw_state_estimator/time_step: 0.005
+ * /position_velocity_yaw_state_estimator/topics/state: /state/position_v...
+ * /position_velocity_yaw_state_estimator/x_dim: 7
+ * /reference_converter/topic/fastrack_reference: /ref/fastrack
+ * /reference_converter/topic/raw_reference: /ref/position_vel...
+ * /replanner/srv/replan: /replan
+ * /replanner/topic/replan_request: /replan
+ * /replanner/topic/traj: /traj
+ * /rosapi/params_glob: [*]
+ * /rosapi/services_glob: [*]
+ * /rosapi/topics_glob: [*]
+ * /rosbridge_websocket/address: 
+ * /rosbridge_websocket/authenticate: False
+ * /rosbridge_websocket/bson_only_mode: False
+ * /rosbridge_websocket/delay_between_messages: 0
+ * /rosbridge_websocket/fragment_timeout: 600
+ * /rosbridge_websocket/max_message_size: None
+ * /rosbridge_websocket/params_glob: [*]
+ * /rosbridge_websocket/port: 9090
+ * /rosbridge_websocket/retry_startup_delay: 5
+ * /rosbridge_websocket/services_glob: [*]
+ * /rosbridge_websocket/topics_glob: [*]
+ * /rosbridge_websocket/unregister_timeout: 10
+ * /rosdistro: kinetic
+ * /rosversion: 1.12.13
+ * /sensor/env/lower/x: -10.0
+ * /sensor/env/lower/y: -10.0
+ * /sensor/env/lower/z: 0.0
+ * /sensor/env/max_radius: 1.0
+ * /sensor/env/min_radius: 0.5
+ * /sensor/env/num_random_obstacles: 0
+ * /sensor/env/obstacle/rs: []
+ * /sensor/env/obstacle/xs: []
+ * /sensor/env/obstacle/ys: []
+ * /sensor/env/obstacle/zs: []
+ * /sensor/env/seed: 0
+ * /sensor/env/upper/x: 10.0
+ * /sensor/env/upper/y: 10.0
+ * /sensor/env/upper/z: 10.0
+ * /sensor/frame/fixed: world
+ * /sensor/frame/sensor: tracker
+ * /sensor/range: 2.0
+ * /sensor/time_step: 0.1
+ * /sensor/topic/sensor_pub: /sensor
+ * /sensor/topic/sensor_sub: /sensor
+ * /sensor/topic/updated_env: /junk/updated_env
+ * /sensor/vis/env: /vis/true_env
+ * /sensor/vis/sensor: /vis/sensor
+ * /state_converter/topic/fastrack_state: /state/fastrack
+ * /state_converter/topic/raw_state: /state/position_v...
+ * /takeoff_control_filter/topics/commanded_control: /control/merged
+ * /takeoff_control_filter/topics/final_control: /control/final
+ * /takeoff_control_filter/topics/in_flight: /in_flight
+ * /takeoff_control_filter/topics/takeoff_control: /control/takeoff
+ * /takeoff_server/hover/x: 0.0
+ * /takeoff_server/hover/y: 0.0
+ * /takeoff_server/hover/z: 1.0
+ * /takeoff_server/topics/control: /control/takeoff
+ * /takeoff_server/topics/in_flight: /in_flight
+ * /takeoff_server/topics/reference: /ref/position_vel...
+ * /tracker/disturbance/acceleration/x: 0.01
+ * /tracker/disturbance/acceleration/y: 0.01
+ * /tracker/disturbance/acceleration/z: 0.01
+ * /tracker/disturbance/velocity/x: 0.1
+ * /tracker/disturbance/velocity/y: 0.1
+ * /tracker/disturbance/velocity/z: 0.1
+ * /tracker/expansion/velocity/x: 0.1
+ * /tracker/expansion/velocity/y: 0.1
+ * /tracker/expansion/velocity/z: 0.1
+ * /tracker/frames/planner: planner
+ * /tracker/planner/vx: 0.3
+ * /tracker/planner/vy: 0.3
+ * /tracker/planner/vz: 0.3
+ * /tracker/srv/bound: /bound
+ * /tracker/srv/planner_dynamics: /planner_dynamics
+ * /tracker/time_step: 0.02
+ * /tracker/topic/control: /control/fastrack
+ * /tracker/topic/planner_state: /ref/fastrack
+ * /tracker/topic/ready: /in_flight
+ * /tracker/topic/tracker_state: /state/fastrack
+ * /tracker/tracker/lower/thrust: 7.81
+ * /tracker/tracker/upper/pitch: 0.1
+ * /tracker/tracker/upper/roll: 0.1
+ * /tracker/tracker/upper/thrust: 11.81
+ * /tracker/vis/bound: /vis/bound
+ * /userpath_planner_manager/frame/fixed: world
+ * /userpath_planner_manager/frame/planner: planner
+ * /userpath_planner_manager/goal: [0.0, 0.0, 0.5]
+ * /userpath_planner_manager/planner_runtime: 0.5
+ * /userpath_planner_manager/start: [0.0, 0.0, 1.0]
+ * /userpath_planner_manager/time_step: 0.02
+ * /userpath_planner_manager/topic/ready: /in_flight
+ * /userpath_planner_manager/topic/ref: /ref/fastrack
+ * /userpath_planner_manager/topic/replan_request: /replan
+ * /userpath_planner_manager/topic/traj: /traj
+ * /userpath_planner_manager/topic/updated_env: /updated_env
+ * /userpath_planner_manager/topic/userpoint: /userpoint
+ * /userpath_planner_manager/vis/goal: /vis/goal
+ * /userpath_planner_manager/vis/traj: /vis/traj
+
+NODES
+  /crazyflie/
+    crazyflie_add (crazyflie_driver/crazyflie_add)
+  /
+    cmd_vel_converter (crazyflie_control_merger/cmd_vel_converter_node)
+    control_converter (fastrack_crazyflie_demos/control_converter_demo_node)
+    crazyflie_server (crazyflie_driver/crazyflie_server)
+    lqr_controller (crazyflie_lqr/position_velocity_yaw_state_lift_lqr_node)
+    merger (crazyflie_control_merger/regular_control_merger_node)
+    mocap_frame_publisher (tf/static_transform_publisher)
+    planner (fastrack_crazyflie_demos/ompl_kinematic_planner_demo_node)
+    position_velocity_state_estimator (crazyflie_state_estimator/position_velocity_state_estimator_node)
+    position_velocity_yaw_state_estimator (crazyflie_state_estimator/position_velocity_yaw_state_estimator_node)
+    reference_converter (fastrack_crazyflie_demos/position_velocity_reference_converter_demo_node)
+    replanner (fastrack/replanner_node)
+    rosapi (rosapi/rosapi_node)
+    rosbridge_websocket (rosbridge_server/rosbridge_websocket)
+    sensor (fastrack_crazyflie_demos/sphere_sensor_demo_node)
+    state_converter (fastrack_crazyflie_demos/state_converter_demo_node)
+    takeoff_control_filter (crazyflie_takeoff/take[0m[ INFO] [1539153846.404341887]: Adding radio://0/80/2M/E7E7E7E7EA as tracker with trim(0.000000, 0.000000). Logging: 1, Parameters: 1, Use ROS time: 1[0m
+Configured Dongle with version 0.53
+K is: 
+   -0  0.25    -0    -0     1     0    -0
+-0.25    -0    -0    -1    -0    -0    -0
+   -0     0    -0    -0     0     0  -3.5
+   -0    -0  -1.5    -0    -0    -1     0
+uref is: 
+   0    0    0 9.81
+[0m[ INFO] [1539153846.391788824]: wait_for_service /add_crazyflie[0m
+[0m[ INFO] [1539153846.394881084]: found /add_crazyflie[0m
+[0m[ INFO] [1539153846.285194776]: enter register callback[0m
+[0m[ INFO] [1539153846.285244274]: enter Register_fastrack[0m
+[0m[ INFO] [1539153846.387900048]: quit Register_fastrack[0m
+[0m[ INFO] [1539153846.405833172]: enter callback function[0m
+[0m[ INFO] [1539153846.405883570]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 1.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.405896897]: trying to interpolate[0m
+[0m[ INFO] [1539153846.405911848]: enter callback function[0m
+[0m[ INFO] [1539153846.405926014]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 2.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.405934477]: trying to interpolate[0m
+[0m[ INFO] [1539153846.405947188]: enter callback function[0m
+[0m[ INFO] [1539153846.405959932]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.405968397]: trying to interpolate[0m
+[0m[ INFO] [1539153846.408019516]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.408037576]: enter callback 1[0m
+[0m[ INFO] [1539153846.408047660]: enter callback function[0m
+[0m[ INFO] [1539153846.408073945]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.408085299]: trying to interpolate[0m
+[0m[ INFO] [1539153846.428256948]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.428276832]: enter callback 1[0m
+[0m[ INFO] [1539153846.428281844]: enter callback function[0m
+[0m[ INFO] [1539153846.428303418]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.428314556]: trying to interpolate[0m
+[0m[ INFO] [1539153846.448542967]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.448557476]: enter callback 1[0m
+[0m[ INFO] [1539153846.448562336]: enter callback function[0m
+[0m[ INFO] [1539153846.448599010]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.448607341]: trying to interpolate[0m
+[0m[ INFO] [1539153846.468780553]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.468796388]: enter callback 1[0m
+[0m[ INFO] [1539153846.468801558]: enter callback function[0m
+[0m[ INFO] [1539153846.468824035]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.468830843]: trying to interpolate[0m
+[0m[ INFO] [1539153846.487954837]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.487971380]: enter callback 1[0m
+[0m[ INFO] [1539153846.487976985]: enter callback function[0m
+[0m[ INFO] [1539153846.488014815]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.488021524]: trying to interpolate[0m
+[0m[ INFO] [1539153846.508203269]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.508219806]: enter callback 1[0m
+[0m[ INFO] [1539153846.508224692]: enter callback function[0m
+[0m[ INFO] [1539153846.508262915]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.508273782]: trying to interpolate[0m
+[0m[ INFO] [1539153846.528450151]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.528466668]: enter callback 1[0m
+[0m[ INFO] [1539153846.528472331]: enter callback function[0m
+[0m[ INFO] [1539153846.528502633]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.528509626]: trying to interpolate[0m
+[0m[ INFO] [1539153846.548659239]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.548675523]: enter callback 1[0m
+[0m[ INFO] [1539153846.548680243]: enter callback function[0m
+[0m[ INFO] [1539153846.548696824]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.548702967]: trying to interpolate[0m
+[0m[ INFO] [1539153846.56[33m[ WARN] [1539153846.641101603]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.641131434]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.641180630]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.641189953]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.646373331]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.646388159]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.651586541]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.651598592]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.656783737]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.656794790]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.661990054]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.662001762]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.667151413]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.667161102]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.671313674]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.671325855]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.676501259]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.676511476]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.681663065]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.681673160]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine curre[33m[ WARN] [1539153846.647849383]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.647880059]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.647930249]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.647939655]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.653097568]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.653109424]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.658270915]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.658285576]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.663444429]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.663454564]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.668572328]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.668582204]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.673738894]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.673749218]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.678959912]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.678970788]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.683147772]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.682029450, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.683158338]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.688366516]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.682029450, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.688380554]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.693575868]: /position_velocity_state_estint state.[0m
+[33m[ WARN] [1539153846.686856938]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation at time 1539153846.682029450, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.686867456]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.692123513]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.692138781]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.696223647]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.696233336]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.701427164]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.701454518]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.706604646]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.706614299]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.711826631]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.711837732]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.717019312]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.717033082]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.722219138]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.722231694]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.726388094]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.726400387]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.731598243]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earmator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.693598157]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.698825854]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.698855326]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.702959039]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.702970049]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.708136853]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.708148453]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.713296724]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.713307043]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.718466164]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.718477418]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.723665471]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.723676136]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.728876340]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.728889212]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.733072000]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.733086633]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.738311259]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539158867645]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.568909529]: enter callback 1[0m
+[0m[ INFO] [1539153846.568915731]: enter callback function[0m
+[0m[ INFO] [1539153846.568934332]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.568941498]: trying to interpolate[0m
+[0m[ INFO] [1539153846.588118595]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.588143752]: enter callback 1[0m
+[0m[ INFO] [1539153846.588150568]: enter callback function[0m
+[0m[ INFO] [1539153846.588170724]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.588178825]: trying to interpolate[0m
+[0m[ INFO] [1539153846.608360170]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.608381604]: enter callback 1[0m
+[0m[ INFO] [1539153846.608388306]: enter callback function[0m
+[0m[ INFO] [1539153846.608417532]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.608426428]: trying to interpolate[0m
+[0m[ INFO] [1539153846.628572694]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.628590003]: enter callback 1[0m
+[0m[ INFO] [1539153846.628595881]: enter callback function[0m
+[0m[ INFO] [1539153846.628615766]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.628624166]: trying to interpolate[0m
+[0m[ INFO] [1539153846.648811314]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.648825185]: enter callback 1[0m
+[0m[ INFO] [1539153846.648830215]: enter callback function[0m
+[0m[ INFO] [1539153846.648845953]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.648852238]: trying to interpolate[0m
+[0m[ INFO] [1539153846.668007303]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.668020217]: enter callback 1[0m
+[0m[ INFO] [1539153846.668025089]: enter callback function[0m
+[0m[ INFO] [1539153846.668040433]: Maybe Request Trajectory from (0.000000, 0.000000, 1.000000) to (1.000000, 3.000000, 1.000000)[0m
+[0m[ INFO] [1539153846.668046637]: trying to interpolate[0m
+[33m[ WARN] [1539153846.668952043]: Trajectory: I'm lonely. Please subscribe.[0m
+[0m[ INFO] [1539153846.688204073]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.688217660]: afterwards[0m
+[33m[ WARN] [1539153846.688225902]: Trajectory: interpolating before first time.[0m
+[0m[ INFO] [1539153846.708408659]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.708420665]: afterwards[0m
+[0m[ INFO] [1539153846.728583909]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.728599070]: afterwards[0m
+[0m[ INFO] [1539153846.748844937]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.748880005]: afterwards[0m
+[0m[ INFO] [1539153846.768164161]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.768223805]: afterwards[0m
+[0m[ INFO] [1539153846.788707448]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.788768554]: afterwards[0m
+[0m[ INFO] [1539153846.808390769]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.808446909]: afterwards[0m
+[0m[ INFO] [1539153846.828368576]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.828428734]: afterwards[0m
+[0m[ INFO] [1539153846.848757754]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.848803484]: afterwards[0m
+[0m[ INFO] [1539153846.868117335]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.868169389]: afterwards[0m
+[0m[ INFO] [1539153846.888637416]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.888688745]: afterwards[0m
+[0m[ INFO] [1539153846.908306635]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.908359335]: afterwards[0m
+[0m[ INFO] [1539153846.928812799]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.928863920]: afterwards[0m
+[0m[ INFO] [1539153846.948233948]: enter TimerCallback function[0m
+[[0m[ INFO] [1539153847.042050109]: Requesting parameters...[0m
+Params: 141
+0m[ INFO] [1539153846.948282135]: afterwards[0m
+[0m[ INFO] [1539153846.968666838]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.968729555]: afterwards[0m
+[0m[ INFO] [1539153846.988129836]: enter TimerCallback function[0m
+[0m[ INFO] [1539153846.988192509]: afterwards[0m
+[0m[ INFO] [1539153847.008554382]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.008611197]: afterwards[0m
+[0m[ INFO] [1539153847.028959863]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.029004070]: afterwards[0m
+[0m[ INFO] [1539153847.048416444]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.048472087]: afterwards[0m
+[0m[ INFO] [1539153847.068835972]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.068902941]: afterwards[0m
+[0m[ INFO] [1539153847.088253041]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.088302573]: afterwards[0m
+[0m[ INFO] [1539153847.108654746]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.108705385]: afterwards[0m
+[0m[ INFO] [1539153847.127993986]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.128041140]: afterwards[0m
+[0m[ INFO] [1539153847.148433761]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.148484788]: afterwards[0m
+[0m[ INFO] [1539153847.168822320]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.168873189]: afterwards[0m
+[0m[ INFO] [1539153847.188333023]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.188380154]: afterwards[0m
+[0m[ INFO] [1539153847.208791495]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.208838571]: afterwards[0m
+[0m[ INFO] [1539153847.228290077]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.228337705]: afterwards[0m
+[0m[ INFO] [1539153847.248681802]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.248730784]: afterwards[0m
+[0m[ INFO] [1539153847.268143088]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.268209483]: afterwards[0m
+[0m[ INFO] [1539153847.288540802]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.288585595]: afterwards[0m
+[0m[ INFO] [1539153847.308909068]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.308955047]: afterwards[0m
+[0m[ INFO] [1539153847.328429763]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.328476864]: afterwards[0m
+[0m[ INFO] [1539153847.348817146]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.348873724]: afterwards[0m
+[0m[ INFO] [1539153847.368202421]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.368258653]: afterwards[0m
+[0m[ INFO] [1539153847.388626487]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.388688095]: afterwards[0m
+[0m[ INFO] [1539153847.407956601]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.408020060]: afterwards[0m
+[0m[ INFO] [1539153847.428364374]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.428414109]: afterwards[0m
+[0m[ INFO] [1539153847.448755791]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.448805786]: afterwards[0m
+[0m[ INFO] [1539153847.468160360]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.468216954]: afterwards[0m
+[0m[ INFO] [1539153847.488601653]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.488648352]: afterwards[0m
+[0m[ INFO] [1539153847.508014124]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.508073151]: afterwards[0m
+[0m[ INFO] [1539153847.528448479]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.528511157]: afterwards[0m
+[0m[ INFO] [1539153847.548909238]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.548965015]: afterwards[0m
+[0m[ INFO] [1539153847.568333010]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.568400928]: afterwards[0m
+[0m[ INFO] [1539153847.588941853]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.589011196]: afterwards[0m
+[0m[ INFO] [1539153847.608467036]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.608515145]: afterwards[0m
+[0m[ INFO] [1539153847.628910393]: enter TimerCallback function[0m
+[0m[ INFO] [15391[0m[ INFO] [1539153847.731516491]: Requesting Logging variables...[0m
+Log: 224
+53847.628964151]: afterwards[0m
+[0m[ INFO] [1539153847.648370260]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.648428000]: afterwards[0m
+[0m[ INFO] [1539153847.668817804]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.668880690]: afterwards[0m
+[0m[ INFO] [1539153847.688282747]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.688345826]: afterwards[0m
+[0m[ INFO] [1539153847.708757709]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.708820284]: afterwards[0m
+[0m[ INFO] [1539153847.728191330]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.728241118]: afterwards[0m
+[0m[ INFO] [1539153847.748609050]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.748653644]: afterwards[0m
+[0m[ INFO] [1539153847.767977458]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.768040095]: afterwards[0m
+[0m[ INFO] [1539153847.788374193]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.788426233]: afterwards[0m
+[0m[ INFO] [1539153847.808818510]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.808872697]: afterwards[0m
+[0m[ INFO] [1539153847.828262657]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.828308147]: afterwards[0m
+[0m[ INFO] [1539153847.848698451]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.848744248]: afterwards[0m
+[0m[ INFO] [1539153847.868133942]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.868190432]: afterwards[0m
+[0m[ INFO] [1539153847.888506467]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.888551216]: afterwards[0m
+[0m[ INFO] [1539153847.908913481]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.908968158]: afterwards[0m
+[0m[ INFO] [1539153847.928315327]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.928363861]: afterwards[0m
+[0m[ INFO] [1539153847.948725502]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.948787541]: afterwards[0m
+[0m[ INFO] [1539153847.968117614]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.968164226]: afterwards[0m
+[0m[ INFO] [1539153847.988603329]: enter TimerCallback function[0m
+[0m[ INFO] [1539153847.988648826]: afterwards[0m
+[0m[ INFO] [1539153848.008015278]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.008075022]: afterwards[0m
+[0m[ INFO] [1539153848.028464903]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.028522588]: afterwards[0m
+[0m[ INFO] [1539153848.048909250]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.048959453]: afterwards[0m
+[0m[ INFO] [1539153848.068355532]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.068400952]: afterwards[0m
+[0m[ INFO] [1539153848.088795477]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.088844288]: afterwards[0m
+[0m[ INFO] [1539153848.108224043]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.108287398]: afterwards[0m
+[0m[ INFO] [1539153848.128677171]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.128723588]: afterwards[0m
+[0m[ INFO] [1539153848.148142688]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.148203921]: afterwards[0m
+[0m[ INFO] [1539153848.168537148]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.168583064]: afterwards[0m
+[0m[ INFO] [1539153848.188988583]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.189037292]: afterwards[0m
+[0m[ INFO] [1539153848.208369201]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.208416619]: afterwards[0m
+[0m[ INFO] [1539153848.228901574]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.228957862]: afterwards[0m
+[0m[ INFO] [1539153848.248288974]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.248333395]: afterwards[0m
+[0m[ INFO] [1539153848.268705025]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.268792816]: afterwards[0m
+[0m[ INFO] [1539153848.288180975]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.288225788]: afterwards[0m
+[0m[ INFO] [1539153848.308545601]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.308592259]: afterwards[0m
+[0m[ INFO] [1539153848.328197532]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.328258186]: afterwards[0m
+[0m[ INFO] [1539153848.348612380]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.348670425]: afterwards[0m
+[0m[ INFO] [1539153848.367980145]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.368048089]: afterwards[0m
+[0m[ INFO] [1539153848.388403044]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.388452664]: afterwards[0m
+[0m[ INFO] [1539153848.408863077]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.408911039]: afterwards[0m
+[0m[ INFO] [1539153848.428308553]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.428351712]: afterwards[0m
+[0m[ INFO] [1539153848.448721460]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.448766962]: afterwards[0m
+[0m[ INFO] [1539153848.468164276]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.468213553]: afterwards[0m
+[0m[ INFO] [1539153848.488606629]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.488656284]: afterwards[0m
+[0m[ INFO] [1539153848.507984280]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.508029255]: afterwards[0m
+[0m[ INFO] [1539153848.528375758]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.528438210]: afterwards[0m
+[0m[ INFO] [1539153848.548806291]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.548857224]: afterwards[0m
+[0m[ INFO] [1539153848.568171280]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.568221809]: afterwards[0m
+[0m[ INFO] [1539153848.588550861]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.588605985]: afterwards[0m
+[0m[ INFO] [1539153848.607945722]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.607992162]: afterwards[0m
+[0m[ INFO] [1539153848.628340334]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.628386761]: afterwards[0m
+[0m[ INFO] [1539153848.648723503]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.648776502]: afterwards[0m
+[0m[ INFO] [1539153848.668133526]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.668185596]: afterwards[0m
+[0m[ INFO] [1539153848.688535351]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.688581331]: afterwards[0m
+[0m[ INFO] [1539153848.708957544]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.709013070]: afterwards[0m
+[0m[ INFO] [1539153848.728331761]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.728379398]: afterwards[0m
+[0m[ INFO] [1539153848.748710109]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.748763740]: afterwards[0m
+[0m[ INFO] [1539153848.768136582]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.768202039]: afterwards[0m
+[0m[ INFO] [1539153848.788581798]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.788648359]: afterwards[0m
+[0m[ INFO] [1539153848.807949843]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.807996099]: afterwards[0m
+[0m[ INFO] [1539153848.828389625]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.828435901]: afterwards[0m
+[0m[ INFO] [1539153848.848799082]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.848847637]: afterwards[0m
+[0m[ INFO] [1539153848.868289118]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.868335075]: afterwards[0m
+[0m[ INFO] [1539153848.888680885]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.888726365]: afterwards[0m
+[0m[ INFO] [1539153848.908100276]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.908146780]: afterwards[0m
+[0m[ INFO] [1539153848.928487706]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.928532548]: afterwards[0m
+[0m[ INFO] [1539153848.948874716]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.948923409]: afterwards[0m
+[0m[ INFO] [1539153848.968282253]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.968329225]: afterwards[0m
+[0m[ INFO] [1539153848.988671402]: enter TimerCallback function[0m
+[0m[ INFO] [1539153848.988721385]: afterwards[0m
+[0m[ INFO] [1539153849.008178726]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.008238512]: afterwards[0m
+[0m[ INFO] [1539153849.028594326]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.028658592]: afterwards[0m
+[0m[ INFO] [1539153849.047969360]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.048021855]: afterwards[0m
+[0m[ INFO] [1539153849.068388411]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.068449255]: afterwards[0m
+[0m[ INFO] [1539153849.088847575]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.088893666]: afterwards[0m
+[0m[ INFO] [1539153849.108275897]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.108337152]: afterwards[0m
+[0m[ INFO] [1539153849.128710658]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.128776988]: afterwards[0m
+[0m[ INFO] [1539153849.148251271]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.148302996]: afterwards[0m
+[0m[ INFO] [1539153849.168694592]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.168739793]: afterwards[0m
+[0m[ INFO] [1539153849.188131706]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.188185513]: afterwards[0m
+[0m[ INFO] [1539153849.208592027]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.208650456]: afterwards[0m
+[0m[ INFO] [1539153849.228149123]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.228210906]: afterwards[0m
+[0m[ INFO] [1539153849.248606178]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.248667368]: afterwards[0m
+[0m[ INFO] [1539153849.268627408]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.268680728]: afterwards[0m
+[0m[ INFO] [1539153849.287976533]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.288018703]: afterwards[0m
+[0m[ INFO] [1539153849.308364192]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.308410920]: afterwards[0m
+[0m[ INFO] [1539153849.328802483]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.328850927]: afterwards[0m
+[0m[ INFO] [1539153849.348217090]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.348261141]: afterwards[0m
+[0m[ INFO] [1539153849.368667660]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.368714962]: afterwards[0m
+[0m[ INFO] [1539153849.388198753]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.388245140]: afterwards[0m
+[0m[ INFO] [1539153849.408627795]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.408673651]: afterwards[0m
+[0m[ INFO] [1539153849.427948961]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.428013186]: afterwards[0m
+[0m[ INFO] [1539153849.448390363]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.448454255]: afterwards[0m
+[0m[ INFO] [1539153849.468813876]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.468864901]: afterwards[0m
+[0m[ INFO] [1539153849.488269854]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.488315776]: afterwards[0m
+[0m[ INFO] [1539153849.508648102]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.508695559]: afterwards[0m
+[0m[ INFO] [1539153849.528115826]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.528160349]: afterwards[0m
+[0m[ INFO] [1539153849.548584843]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.548649245]: afterwards[0m
+[0m[ INFO] [1539153849.567944688]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.568004643]: afterwards[0m
+[0m[ INFO] [1539153849.588349876]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.588408826]: afterwards[0m
+[0m[ INFO] [1539153849.608932926]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.608991491]: afterwards[0m
+[0m[ INFO] [1539153849.628474150]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.628519407]: afterwards[0m
+[0m[ INFO] [1539153849.648881076]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.648927168]: afterwards[0m
+[0m[ INFO] [1539153849.668317220]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.668383148]: afterwards[0m
+[0m[ INFO] [1539153849.688741549]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.688839070]: afterwards[0m
+[0m[ INFO] [1539153849.708181434]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.708232481]: afterwards[0m
+[0m[ INFO] [1539153849.728557577]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.728607054]: afterwards[0m
+[0m[ INFO] [1539153849.748936890]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.748995775]: afterwards[0m
+[0m[ INFO] [1539153849.768435426]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.768483824]: afterwards[0m
+[0m[ INFO] [1539153849.788782098]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.788829873]: afterwards[0m
+[0m[ INFO] [1539153849.808292986]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.808341446]: afterwards[0m
+[0m[ INFO] [1539153849.828682060]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.828726404]: afterwards[0m
+[0m[ INFO] [1539153849.848110966]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.848167854]: afterwards[0m
+[0m[ INFO] [1539153849.868665801]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.868720148]: afterwards[0m
+[0m[ INFO] [1539153849.888082819]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.888143836]: afterwards[0m
+[0m[ INFO] [1539153849.908620222]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.908672192]: afterwards[0m
+[0m[ INFO] [1539153849.928985688]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.929037895]: afterwards[0m
+[0m[ INFO] [1539153849.948675192]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.948738209]: afterwards[0m
+[0m[ INFO] [1539153849.968247859]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.968309594]: afterwards[0m
+[0m[ INFO] [1539153849.988673151]: enter TimerCallback function[0m
+[0m[ INFO] [1539153849.988735053]: afterwards[0m
+[0m[ INFO] [1539153850.008086031]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.008139963]: afterwards[0m
+[0m[ INFO] [1539153850.028489707]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.028535024]: afterwards[0m
+[0m[ INFO] [1539153850.048912304]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.048961384]: afterwards[0m
+[0m[ INFO] [1539153850.068322896]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.068373676]: afterwards[0m
+[0m[ INFO] [1539153850.088757368]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.088812188]: afterwards[0m
+[0m[ INFO] [1539153850.108167468]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.108227682]: afterwards[0m
+[0m[ INFO] [1539153850.128576864]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.128628955]: afterwards[0m
+[0m[ INFO] [1539153850.149007317]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.149057985]: afterwards[0m
+[0m[ INFO] [1539153850.168434897]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.168504935]: afterwards[0m
+[0m[ INFO] [1539153850.188882669]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.188940925]: afterwards[0m
+[0m[ INFO] [1539153850.208315343]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.208370443]: afterwards[0m
+[0m[ INFO] [1539153850.228741005]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.228802016]: afterwards[0m
+[0m[ INFO] [1539153850.248164385]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.248212843]: afterwards[0m
+[0m[ INFO] [1539153850.268614624]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.268672461]: afterwards[0m
+[0m[ INFO] [1539153850.287973061]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.288024575]: afterwards[0m
+[0m[ INFO] [1539153850.308371042]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.308436252]: afterwards[0m
+[0m[ INFO] [1539153850.328796166]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.328841080]: afterwards[0m
+[0m[ INFO] [1539153850.348255542]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.348306058]: afterwards[0m
+[0m[ INFO] [1539153850.368722029]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.368842246]: afterwards[0m
+[0m[ INFO] [1539153850.388223839]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.388273978]: afterwards[0m
+[0m[ INFO] [1539153850.408666457]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.408728253]: afterwards[0m
+[0m[ INFO] [1539153850.428114064]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.428189748]: afterwards[0m
+[0m[ INFO] [1539153850.448558198]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.448611497]: afterwards[0m
+[0m[ INFO] [1539153850.467936924]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.467982217]: afterwards[0m
+[0m[ INFO] [1539153850.488345895]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.488395615]: afterwards[0m
+[0m[ INFO] [1539153850.508747048]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.508817467]: afterwards[0m
+[0m[ INFO] [1539153850.528187052]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.528235024]: afterwards[0m
+[0m[ INFO] [1539153850.548595642]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.548646732]: afterwards[0m
+[0m[ INFO] [1539153850.568001320]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.568049599]: afterwards[0m
+[0m[ INFO] [1539153850.588409182]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.588463584]: afterwards[0m
+[0m[ INFO] [1539153850.608826045]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.608880297]: afterwards[0m
+[0m[ INFO] [1539153850.628415373]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.628479277]: afterwards[0m
+[0m[ INFO] [1539153850.648856519]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.648905911]: afterwards[0m
+[0m[ INFO] [1539153850.668270310]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.668335097]: afterwards[0m
+[0m[ INFO] [1539153850.688695207]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.688756166]: afterwards[0m
+[0m[ INFO] [1539153850.708111457]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.708167579]: afterwards[0m
+[0m[ INFO] [1539153850.728497680]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.728542458]: afterwards[0m
+[0m[ INFO] [1539153850.747947180]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.747995601]: afterwards[0m
+[0m[ INFO] [1539153850.768379631]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.768425415]: afterwards[0m
+[0m[ INFO] [1539153850.788781999]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.788832906]: afterwards[0m
+[0m[ INFO] [1539153850.808272834]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.808324187]: afterwards[0m
+[0m[ INFO] [1539153850.828689028]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.828742670]: afterwards[0m
+[0m[ INFO] [1539153850.848094989]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.848155737]: afterwards[0m
+[0m[ INFO] [1539153850.868555081]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.868615742]: afterwards[0m
+[0m[ INFO] [1539153850.888142304]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.888198695]: afterwards[0m
+[0m[ INFO] [1539153850.908548558]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.908600515]: afterwards[0m
+[0m[ INFO] [1539153850.928972153]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.929043440]: afterwards[0m
+[0m[ INFO] [1539153850.948424327]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.948472977]: afterwards[0m
+[0m[ INFO] [1539153850.968016761]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.968085953]: afterwards[0m
+[0m[ INFO] [1539153850.988478372]: enter TimerCallback function[0m
+[0m[ INFO] [1539153850.988526242]: afterwards[0m
+[0m[ INFO] [1539153851.008879881]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.008929719]: afterwards[0m
+[0m[ INFO] [1539153851.028329150]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.028388907]: afterwards[0m
+[0m[ INFO] [1539153851.049009208]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.049110215]: afterwards[0m
+[0m[ INFO] [1539153851.068454952]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.068518316]: afterwards[0m
+[0m[ INFO] [1539153851.088924513]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.088974240]: afterwards[0m
+[0m[ INFO] [1539153851.108365278]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.108432431]: afterwards[0m
+[0m[ INFO] [1539153851.128931920]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.128982631]: afterwards[0m
+[0m[ INFO] [1539153851.148352326]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.148407983]: afterwards[0m
+[0m[ INFO] [1539153851.168752326]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.168812213]: afterwards[0m
+[0m[ INFO] [1539153851.188241418]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.188293108]: afterwards[0m
+[0m[ INFO] [1539153851.208660533]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.208707636]: afterwards[0m
+[0m[ INFO] [1539153851.228113791]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.228171714]: afterwards[0m
+[0m[ INFO] [1539153851.248512063]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.248566370]: afterwards[0m
+[0m[ INFO] [1539153851.268896207]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.268955112]: afterwards[0m
+[0m[ INFO] [1539153851.288276439]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.288322751]: afterwards[0m
+[0m[ INFO] [1539153851.308755374]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.308812980]: afterwards[0m
+[0m[ INFO] [1539153851.328160777]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.328204998]: afterwards[0m
+[0m[ INFO] [1539153851.348593145]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.348658274]: afterwards[0m
+[0m[ INFO] [1539153851.367945921]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.368008122]: afterwards[0m
+[0m[ INFO] [1539153851.388357999]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.388403895]: afterwards[0m
+[0m[ INFO] [1539153851.408775244]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.408825714]: afterwards[0m
+[0m[ INFO] [1539153851.428196837]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.428241952]: afterwards[0m
+[0m[ INFO] [1539153851.448610642]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.448661790]: afterwards[0m
+[0m[ INFO] [1539153851.467950193]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.468012403]: afterwards[0m
+[0m[ INFO] [1539153851.488391521]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.488445239]: afterwards[0m
+[0m[ INFO] [1539153851.508784895]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.508834813]: afterwards[0m
+[0m[ INFO] [1539153851.528180947]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.528225799]: afterwards[0m
+[0m[ INFO] [1539153851.548625564]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.548679317]: afterwards[0m
+[0m[ INFO] [1539153851.567964150]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.568017220]: afterwards[0m
+[0m[ INFO] [1539153851.588410606]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.588460308]: afterwards[0m
+[0m[ INFO] [1539153851.608840046]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.608900407]: afterwards[0m
+[0m[ INFO] [1539153851.628270166]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.628328660]: afterwards[0m
+[0m[ INFO] [1539153851.648709524]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.648756215]: afterwards[0m
+[0m[ INFO] [1539153851.668097824]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.668153148]: afterwards[0m
+[0m[ INFO] [1539153851.688571971]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.688618826]: afterwards[0m
+[0m[ INFO] [1539153851.707928932]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.707976192]: afterwards[0m
+[0m[ INFO] [1539153851.728347166]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.728454639]: afterwards[0m
+[0m[ INFO] [1539153851.748856317]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.748921066]: afterwards[0m
+[0m[ INFO] [1539153851.768360833]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.768420775]: afterwards[0m
+[0m[ INFO] [1539153851.788786383]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.788837579]: afterwards[0m
+[0m[ INFO] [1539153851.808296093]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.808344123]: afterwards[0m
+[0m[ INFO] [1539153851.828680078]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.828731846]: afterwards[0m
+[0m[ INFO] [1539153851.848073868]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.848118340]: afterwards[0m
+[0m[ INFO] [1539153851.868491720]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.868543935]: afterwards[0m
+[0m[ INFO] [1539153851.888916049]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.888969437]: afterwards[0m
+[0m[ INFO] [1539153851.908317402]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.908375600]: afterwards[0m
+[0m[ INFO] [1539153851.928749239]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.928795191]: afterwards[0m
+[0m[ INFO] [1539153851.948097012]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.948144782]: afterwards[0m
+[0m[ INFO] [1539153851.968559223]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.968611387]: afterwards[0m
+[0m[ INFO] [1539153851.987976749]: enter TimerCallback function[0m
+[0m[ INFO] [1539153851.988024182]: afterwards[0m
+[0m[ INFO] [1539153852.008413828]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.008462425]: afterwards[0m
+[0m[ INFO] [1539153852.028877622]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.028921797]: afterwards[0m
+[0m[ INFO] [1539153852.048288186]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.048336240]: afterwards[0m
+[0m[ INFO] [1539153852.068677881]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.068725009]: afterwards[0m
+[0m[ INFO] [1539153852.087974714]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.088038240]: afterwards[0m
+[0m[ INFO] [1539153852.108367394]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.108419662]: afterwards[0m
+[0m[ INFO] [1539153852.128771300]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.128820048]: afterwards[0m
+[0m[ INFO] [1539153852.148185655]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.148230395]: afterwards[0m
+[0m[ INFO] [1539153852.168590753]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.168693058]: afterwards[0m
+[0m[ INFO] [1539153852.188139582]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.188184020]: afterwards[0m
+[0m[ INFO] [1539153852.208521687]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.208569504]: afterwards[0m
+[0m[ INFO] [1539153852.228933405]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.228989520]: afterwards[0m
+[0m[ INFO] [1539153852.248351913]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.248397281]: afterwards[0m
+[0m[ INFO] [1539153852.268974412]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.269029497]: afterwards[0m
+[0m[ INFO] [1539153852.288415078]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.288479377]: afterwards[0m
+[0m[ INFO] [1539153852.308872332]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.308937447]: afterwards[0m
+[0m[ INFO] [1539153852.328287532]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.328334423]: afterwards[0m
+[0m[ INFO] [1539153852.348677088]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.348732342]: afterwards[0m
+[0m[ INFO] [1539153852.368111850]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.368169067]: afterwards[0m
+[0m[ INFO] [1539153852.388547974]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.388593105]: afterwards[0m
+[0m[ INFO] [1539153852.408898239]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.408945282]: afterwards[0m
+[0m[ INFO] [1539153852.428411859]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.428475137]: afterwards[0m
+[0m[ INFO] [1539153852.448836706]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.448881543]: afterwards[0m
+[0m[ INFO] [1539153852.468228081]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.468272861]: afterwards[0m
+[0m[ INFO] [1539153852.488744050]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.488788806]: afterwards[0m
+[0m[ INFO] [1539153852.508172226]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.508232158]: afterwards[0m
+[0m[ INFO] [1539153852.528638892]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.528698187]: afterwards[0m
+[0m[ INFO] [1539153852.548084314]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.548142310]: afterwards[0m
+[0m[ INFO] [1539153852.568489536]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.568554599]: afterwards[0m
+[0m[ INFO] [1539153852.589001951]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.589064169]: afterwards[0m
+[0m[ INFO] [1539153852.608404361]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.608458666]: afterwards[0m
+[0m[ INFO] [1539153852.628941634]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.629003252]: afterwards[0m
+[0m[ INFO] [1539153852.648369663]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.648429444]: afterwards[0m
+[0m[ INFO] [1539153852.668825060]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.668879207]: afterwards[0m
+[0m[ INFO] [1539153852.688338632]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.688383852]: afterwards[0m
+[0m[ INFO] [1539153852.708727733]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.708773462]: afterwards[0m
+[0m[ INFO] [1539153852.728181048]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.728239448]: afterwards[0m
+[0m[ INFO] [1539153852.748580168]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.748629549]: afterwards[0m
+[0m[ INFO] [1539153852.768963947]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.769011726]: afterwards[0m
+[0m[ INFO] [1539153852.788388787]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.788432591]: afterwards[0m
+[0m[ INFO] [1539153852.808848071]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.808897789]: afterwards[0m
+[0m[ INFO] [1539153852.828192491]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.828240845]: afterwards[0m
+[0m[ INFO] [1539153852.848692454]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.848747256]: afterwards[0m
+[0m[ INFO] [1539153852.868141780]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.868191358]: afterwards[0m
+[0m[ INFO] [1539153852.888512242]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.888559155]: afterwards[0m
+[0m[ INFO] [1539153852.908949445]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.908994349]: afterwards[0m
+[0m[ INFO] [1539153852.928417618]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.928488573]: afterwards[0m
+[0m[ INFO] [1539153852.948906246]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.948951290]: afterwards[0m
+[0m[ INFO] [1539153852.968400392]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.968456180]: afterwards[0m
+[0m[ INFO] [1539153852.988821718]: enter TimerCallback function[0m
+[0m[ INFO] [1539153852.988866585]: afterwards[0m
+[0m[ INFO] [1539153853.008214150]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.008280862]: afterwards[0m
+[0m[ INFO] [1539153853.028593002]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.028637874]: afterwards[0m
+[0m[ INFO] [1539153853.047945255]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.048009059]: afterwards[0m
+[0m[ INFO] [1539153853.068652130]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.068715003]: afterwards[0m
+[0m[ INFO] [1539153853.087992942]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.088039738]: afterwards[0m
+[0m[ INFO] [1539153853.108442668]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.108504146]: afterwards[0m
+[0m[ INFO] [1539153853.128856672]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.128912662]: afterwards[0m
+[0m[ INFO] [1539153853.148244565]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.148290398]: afterwards[0m
+[0m[ INFO] [1539153853.168655562]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.168709780]: afterwards[0m
+[0m[ INFO] [1539153853.188170410]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.188217396]: afterwards[0m
+[0m[ INFO] [1539153853.208625270]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.208693646]: afterwards[0m
+[0m[ INFO] [1539153853.227990640]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.228051410]: afterwards[0m
+[0m[ INFO] [1539153853.248422469]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.248471219]: afterwards[0m
+[0m[ INFO] [1539153853.268857104]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.268911840]: afterwards[0m
+[0m[ INFO] [1539153853.288572515]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.288619789]: afterwards[0m
+[0m[ INFO] [1539153853.308997590]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.309062347]: afterwards[0m
+[0m[ INFO] [1539153853.328372312]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.328418450]: afterwards[0m
+[0m[ INFO] [1539153853.348786424]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.348844475]: afterwards[0m
+[0m[ INFO] [1539153853.368235222]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.368288978]: afterwards[0m
+[0m[ INFO] [1539153853.388761532]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.388825790]: afterwards[0m
+[0m[ INFO] [1539153853.408175469]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.408222907]: afterwards[0m
+[0m[ INFO] [1539153853.428576935]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.428621974]: afterwards[0m
+[0m[ INFO] [1539153853.449023876]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.449090748]: afterwards[0m
+[0m[ INFO] [1539153853.468453723]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.468501839]: afterwards[0m
+[0m[ INFO] [1539153853.488880896]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.488945906]: afterwards[0m
+[0m[ INFO] [1539153853.508554271]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.508620128]: afterwards[0m
+[0m[ INFO] [1539153853.529005143]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.529071825]: afterwards[0m
+[0m[ INFO] [1539153853.548484726]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.548530369]: afterwards[0m
+[0m[ INFO] [1539153853.568931142]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.568997032]: afterwards[0m
+[0m[ INFO] [1539153853.588690458]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.588742092]: afterwards[0m
+[0m[ INFO] [1539153853.608117482]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.608179742]: afterwards[0m
+[0m[ INFO] [1539153853.628590627]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.628636210]: afterwards[0m
+[0m[ INFO] [1539153853.648064896]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.648118792]: afterwards[0m
+[0m[ INFO] [1539153853.668409240]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.668457551]: afterwards[0m
+[0m[ INFO] [1539153853.688805114]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.688853020]: afterwards[0m
+[0m[ INFO] [1539153853.708208403]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.708270870]: afterwards[0m
+[0m[ INFO] [1539153853.728899152]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.728965230]: afterwards[0m
+[0m[ INFO] [1539153853.748326443]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.748382851]: afterwards[0m
+[0m[ INFO] [1539153853.768840224]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.768908161]: afterwliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.731629635]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.736809751]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.736842967]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.742048939]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.742072007]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.746223995]: /position_velocity_yaw_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.746245511]: /position_velocity_yaw_state_estimator/state_estimator: Could not determine current state.[0m
+3846.738327999]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.743611961]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.743640311]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[33m[ WARN] [1539153846.748897829]: /position_velocity_state_estimator/state_estimator: Lookup would require extrapolation into the past.  Requested time 1539153846.682029450 but the earliest data is at time 1539153846.688412569, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.748934488]: /position_velocity_state_estimator/state_estimator: Could not determine current state.[0m
+[0m[ INFO] [1539153846.357448613]: /merger/control_merger: Entering MERGE mode.[0m
+[0m[ INFO] [1539153848.122944305]: Ready...[0m
+[0m[ INFO] [1539153848.123026933]: Elapsed: 1.081017 s[0m
+[33m[ WARN] [1539153846.457765256]: /sensor/Sensor: "world" passed to lookupTransform argument target_frame does not exist. [0m
+[33m[ WARN] [1539153846.457798945]: /sensor/Sensor: Could not determine current sensor pose.[0m
+[33m[ WARN] [1539153846.557993090]: /sensor/Sensor: "tracker" passed to lookupTransform argument source_frame does not exist. [0m
+[33m[ WARN] [1539153846.558015624]: /sensor/Sensor: Could not determine current sensor pose.[0m
+[33m[ WARN] [1539153846.658272569]: /sensor/Sensor: Lookup would require extrapolation at time 1539153846.623916442, but only time 1539153846.688412569 is in the buffer, when looking up transform from frame [tracker] to frame [world][0m
+[33m[ WARN] [1539153846.658291700]: /sensor/Sensor: Could not determine current sensor pose.[0m
+[0m[ INFO] [1539153846.290221973]: /planner/Environment: No pre-specified obstacles.[0m
+ards[0m
+[0m[ INFO] [1539153853.788343263]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.788401514]: afterwards[0m
+[0m[ INFO] [1539153853.808896814]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.808952407]: afterwards[0m
+[0m[ INFO] [1539153853.828270141]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.828311849]: afterwards[0m
+[0m[ INFO] [1539153853.848544675]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.848567163]: afterwards[0m
+[0m[ INFO] [1539153853.868781411]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.868800898]: afterwards[0m
+[0m[ INFO] [1539153853.887972345]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.887990854]: afterwards[0m
+[0m[ INFO] [1539153853.908168081]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.908185165]: afterwards[0m
+[0m[ INFO] [1539153853.928359267]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.928373189]: afterwards[0m
+[0m[ INFO] [1539153853.948529569]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.948542479]: afterwards[0m
+[0m[ INFO] [1539153853.968715494]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.968735372]: afterwards[0m
+[0m[ INFO] [1539153853.988933732]: enter TimerCallback function[0m
+[0m[ INFO] [1539153853.988954377]: afterwards[0m
+[0m[ INFO] [1539153854.008145779]: enter TimerCallback function[0m
+[0m[ INFO] [1539153854.008162310]: afterwards[0m
+[0m[ INFO] [1539153854.028409026]: enter TimerCallback function[0m
+[0m[ INFO] [1539153854.028423494]: afterwards[0m
+[0m[ INFO] [1539153854.048641709]: enter TimerCallback function[0m
+[0m[ INFO] [1539153854.048656888]: afterwards[0m
+[0m[ INFO] [1539153854.068843313]: enter TimerCallback function[0m
+[0m[ INFO] [1539153854.068864690]: afterwards[0m
+[0m[ INFO] [1539153854.088135147]: enter TimerCallback function[0m
+[0m[ INFO] [1539153854.088149589]: afterwards[0m
+[0m[ INFO] [1539153854.108333396]: enter TimerCallback function[0m
+[0m[ INFO] [1539153854.108347032]: afterwards[0m
+[0m[ INFO] [1539153854.128552002]: enter TimerCallback function[0m
+[0m[ INFO] [1539153854.128565958]: afterwards[0m
+[0m[ INFO] [1539153854.148728872]: enter TimerCallback function[0m
+[0m[ INFO] [1539153854.148741209]: afterwards[0m
+registered capabilities (classes):
+ - rosbridge_library.capabilities.call_service.CallService
+ - rosbridge_library.capabilities.advertise.Advertise
+ - rosbridge_library.capabilities.publish.Publish
+ - rosbridge_library.capabilities.subscribe.Subscribe
+ - <class 'rosbridge_library.capabilities.defragmentation.Defragment'>
+ - rosbridge_library.capabilities.advertise_service.AdvertiseService
+ - rosbridge_library.capabilities.service_response.ServiceResponse
+ - rosbridge_library.capabilities.unadvertise_service.UnadvertiseService
+[INFO] [1539153846.647989]: Rosbridge WebSocket server started on port 9090
+off_control_filter_node)
+    takeoff_server (crazyflie_takeoff/takeoff_server_node)
+    tracker (fastrack_crazyflie_demos/analytical_quadrotor_decoupled_tracker_demo_node)
+    tracker_base_link_publisher (tf/static_transform_publisher)
+    userpath_planner_manager (userpath/position_velocity_userpath_planner_manager_node)
+
+[1mROS_MASTER_URI=http://localhost:11311[0m
+]2;/home/ros/userpath_fastrack/src/userpath/launch/hw_demo.launch http://localhost:11311
+[1mprocess[rosbridge_websocket-1]: started with pid [2544][0m
+[1mprocess[rosapi-2]: started with pid [2545][0m
+[1mprocess[tracker-3]: started with pid [2546][0m
+[1mprocess[planner-4]: started with pid [2547][0m
+[1mprocess[replanner-5]: started with pid [2564][0m
+[1mprocess[userpath_planner_manager-6]: started with pid [2582][0m
+[1mprocess[sensor-7]: started with pid [2602][0m
+[1mprocess[control_converter-8]: started with pid [2623][0m
+[1mprocess[state_converter-9]: started with pid [2638][0m
+[1mprocess[reference_converter-10]: started with pid [2654][0m
+[1mprocess[tracker_base_link_publisher-11]: started with pid [2674][0m
+[1mprocess[mocap_frame_publisher-12]: started with pid [2692][0m
+[1mprocess[crazyflie_server-13]: started with pid [2710][0m
+[1mprocess[crazyflie/crazyflie_add-14]: started with pid [2720][0m
+[1mprocess[cmd_vel_converter-15]: started with pid [2745][0m
+[1mprocess[position_velocity_yaw_state_estimator-16]: started with pid [2764][0m
+[1mprocess[position_velocity_state_estimator-17]: started with pid [2784][0m
+[1mprocess[lqr_controller-18]: started with pid [2803][0m
+[1mprocess[merger-19]: started with pid [2821][0m
+[1mprocess[takeoff_server-20]: started with pid [2840][0m
+[1mprocess[takeoff_control_filter-21]: started with pid [2856][0m
+[1m[crazyflie/crazyflie_add-14] process has finished cleanly
+log file: /home/ros/.ros/log/a13ef422-cc43-11e8-a5cc-54a050d3fa21/crazyflie-crazyflie_add-14*.log[0m
+[takeoff_control_filter-21] killing on exit
+[takeoff_server-20] killing on exit
+[merger-19] killing on exit
+[lqr_controller-18] killing on exit
+[position_velocity_state_estimator-17] killing on exit
+[position_velocity_yaw_state_estimator-16] killing on exit
+[cmd_vel_converter-15] killing on exit
+[crazyflie_server-13] killing on exit
+[mocap_frame_publisher-12] killing on exit
+[tracker_base_link_publisher-11] killing on exit
+[reference_converter-10] killing on exit
+[state_converter-9] killing on exit
+[control_converter-8] killing on exit
+[sensor-7] killing on exit
+[userpath_planner_manager-6] killing on exit
+[replanner-5] killing on exit
+[planner-4] killing on exit
+[tracker-3] killing on exit
+[rosapi-2] killing on exit
+[rosbridge_websocket-1] killing on exit
+shutting down processing monitor...
+... shutting down processing monitor complete
+[1mdone[0m
