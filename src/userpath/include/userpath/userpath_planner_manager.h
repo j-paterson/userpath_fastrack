@@ -50,7 +50,7 @@ protected:
   ros::Subscriber userpoint_sub_;
 
   // Related topics
-  std::string userpoint_topic_;
+  std::string userpoint_topic_ = "mypoint";
 
 };
 
@@ -66,7 +66,7 @@ bool UserpathPlannerManager<S>::LoadParameters(const ros::NodeHandle& n) {
   if (!PlannerManager<S>::LoadParameters(n)) return false;
 
   // Topics
-  if (!nl.getParam("topic/userpoint", userpoint_topic_)) return false; 
+  // if (!nl.getParam("topic/userpoint", userpoint_topic_)) return false; 
   
   return true;
 }
@@ -82,9 +82,11 @@ bool UserpathPlannerManager<S>::RegisterCallbacks(const ros::NodeHandle& n) {
   if (!PlannerManager<S>::RegisterCallbacks(n)) return false;
 
   // Subscribers.
+
   userpoint_sub_ = nl.subscribe(
     userpoint_topic_.c_str(), 1, &UserpathPlannerManager::UserpointCallback, this);
 
+/*
   // Test Points
   Userpoint * first_point = new Userpoint("1", std::vector<double>{1, 1, 1});
 	current_point = *first_point;
@@ -106,6 +108,7 @@ bool UserpathPlannerManager<S>::RegisterCallbacks(const ros::NodeHandle& n) {
 	userpoints.insert(std::pair<std::string, Userpoint*>(first_point->id, first_point));
 	userpoints.insert(std::pair<std::string, Userpoint*>(second_point->id, second_point));
 	userpoints.insert(std::pair<std::string, Userpoint*>(third_point->id, third_point));
+  */
 
   return true;
 }
@@ -248,7 +251,7 @@ void UserpathPlannerManager<S>::MaybeRequestTrajectory() {
 
 template<typename S>
 void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
-	ROS_INFO("enter TimerCallback function");
+	// ROS_INFO("enter TimerCallback function");
 
   //if (!this->ready_)
     //return;
@@ -266,7 +269,7 @@ void UserpathPlannerManager<S>::TimerCallback(const ros::TimerEvent& e) {
     MaybeRequestTrajectory();
   }
 	
-	ROS_INFO("afterwards");
+	//ROS_INFO("afterwards");
   // Interpolate the current trajectory.
   const S planner_x = this->traj_.Interpolate(ros::Time::now().toSec());
 

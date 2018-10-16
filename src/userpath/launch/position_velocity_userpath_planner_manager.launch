@@ -9,7 +9,7 @@
   <arg name="ref_topic" default="/ref" />
   <arg name="traj_vis" default="/vis/traj" />
   <arg name="goal_vis" default="/vis/goal" />  
-  <arg name="userpoint_topic" default="/userpoint" />
+  <!-- <arg name="userpoint_topic" default="/userpoint" /> -->
 
   <!-- Frames of reference. -->
   <arg name="fixed_frame" default="world" />
@@ -41,7 +41,7 @@
 
     <param name="time_step" value="$(arg time_step)" />
 
-    <param name="topic/userpoint" value="$(arg userpoint_topic)" />
+    <!-- <param name="topic/userpoint" value="$(arg userpoint_topic)" /> -->
 
     <param name="planner_runtime" value="$(arg planner_runtime)" />
     <rosparam param="start" subst_value="True">$(arg start)</rosparam>

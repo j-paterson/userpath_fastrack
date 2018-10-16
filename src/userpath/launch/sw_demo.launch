@@ -8,7 +8,7 @@
   </include>
 
   <!-- Topics. -->
-  <arg name="userpoint_topic" default="/userpoint" />
+  <!-- <arg name="userpoint_topic" default="/userpoint" /> -->
 
   <arg name="position_velocity_yaw_state_topic" default="/state/position_velocity_yaw" />
   <arg name="position_velocity_state_topic" default="/state/position_velocity" />
@@ -159,7 +159,7 @@
     <arg name="planner_runtime" value="$(arg planner_runtime)" />
     <arg name="goal" value="[$(arg goal_x), $(arg goal_y), $(arg goal_z)]" />
     <arg name="start" value="[$(arg takeoff_hover_x), $(arg takeoff_hover_y), $(arg takeoff_hover_z)]" />
-    <arg name="userpoint_topic" value="$(arg userpoint_topic)" />
+    <!-- <arg name="userpoint_topic" value="$(arg userpoint_topic)" /> -->
   </include>
 
   <!-- Replanner. -->
