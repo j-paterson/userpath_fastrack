@@ -237,16 +237,7 @@ void UserpathPlannerManager<S>::MaybeRequestTrajectory() {
     }
   }
 
-	// send an test message
-	std:msgs::String msg;
-	std::stringstream ss;
-	sss << "...";
-	msg.data = ss.str()
-
-	traj_ = Trajectory<S>(msg);
-  traj_.Visualize(traj_vis_pub_, fixed_frame_);
-	
-	ROS_INFO("trying to interpolate");
+	// ROS_INFO("trying to interpolate");
 	// msg.start = this->traj_.Interpolate(msg.start_time).ToRos();
   // Publish request and set flag.
   this->replan_request_pub_.publish(msg);

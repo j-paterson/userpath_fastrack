@@ -331,4 +331,8 @@
     <param name="topics/final_control" value="$(arg final_control_topic)" />
     <param name="topics/in_flight" value="$(arg in_flight_topic)" />
   </node>
+
+  <include file="$(find userpoint_publisher)/launch/publisher.launch">
+    <!-- <arg name="userpoint_topic" value="$(arg userpoint_topic)" /> -->
+  </include>
 </launch>

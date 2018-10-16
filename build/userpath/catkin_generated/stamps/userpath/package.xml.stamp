@@ -54,6 +54,7 @@
   <depend>tf2_ros</depend>
   <depend>fastrack</depend>
   <depend>userpath_msgs</depend>
+  <depend>userpoint_publisher</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
