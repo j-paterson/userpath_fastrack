@@ -66,7 +66,7 @@ bool UserpathPlannerManager<S>::LoadParameters(const ros::NodeHandle& n) {
   if (!PlannerManager<S>::LoadParameters(n)) return false;
 
   // Topics
-  if (!nl.getParam("topic/userpoint", userpoint_topic_)) return false;  
+  if (!nl.getParam("topic/userpoint", userpoint_topic_)) return false; 
   
   return true;
 }
