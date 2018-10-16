@@ -86,29 +86,29 @@ bool UserpathPlannerManager<S>::RegisterCallbacks(const ros::NodeHandle& n) {
   userpoint_sub_ = nl.subscribe(
     userpoint_topic_.c_str(), 1, &UserpathPlannerManager::UserpointCallback, this);
 
-/*
+
   // Test Points
-  Userpoint * first_point = new Userpoint("1", std::vector<double>{1, 1, 1});
-	current_point = *first_point;
-	this->goal_.x = current_point.location;
-	MaybeRequestTrajectory();
+ //  Userpoint * first_point = new Userpoint("1", std::vector<double>{1, 1, 1});
+	// current_point = *first_point;
+	// this->goal_.x = current_point.location;
+	// MaybeRequestTrajectory();
 
-  Userpoint * second_point = new Userpoint("2", std::vector<double>{1, 2, 1});
-	current_point.next = second_point;
-	current_point = *second_point;
-	this->goal_.x = current_point.location;
-	MaybeRequestTrajectory();
+ //  Userpoint * second_point = new Userpoint("2", std::vector<double>{1, 2, 1});
+	// current_point.next = second_point;
+	// current_point = *second_point;
+	// this->goal_.x = current_point.location;
+	// MaybeRequestTrajectory();
 
-  Userpoint * third_point = new Userpoint("3", std::vector<double>{1, 3, 1});
-	current_point.next = third_point;
-	current_point = *third_point;
-	this->goal_.x = current_point.location;
-	MaybeRequestTrajectory();
+ //  Userpoint * third_point = new Userpoint("3", std::vector<double>{1, 3, 1});
+	// current_point.next = third_point;
+	// current_point = *third_point;
+	// this->goal_.x = current_point.location;
+	// MaybeRequestTrajectory();
 
-	userpoints.insert(std::pair<std::string, Userpoint*>(first_point->id, first_point));
-	userpoints.insert(std::pair<std::string, Userpoint*>(second_point->id, second_point));
-	userpoints.insert(std::pair<std::string, Userpoint*>(third_point->id, third_point));
-  */
+	// userpoints.insert(std::pair<std::string, Userpoint*>(first_point->id, first_point));
+	// userpoints.insert(std::pair<std::string, Userpoint*>(second_point->id, second_point));
+	// userpoints.insert(std::pair<std::string, Userpoint*>(third_point->id, third_point));
+
 
   return true;
 }
